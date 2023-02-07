@@ -22,6 +22,28 @@ The task will involve additional research in the domain of PI, and must involve:
   2. Interviewing potential users (other students) about your PI concept
   3. Comparing existing PI systems that are related to your challenge
 You are expected to compare and contrast ideas from these sources. We expect you to make use of the Computer Science subject resources linked from the University of Bath Library at http://www.bath.ac.uk/library/subjects/comp-sci/. You areexpected to adjust your understanding of your PI concept as you go from sprint to sprint, with the sprint reviews incorporating additional research members of your group have done in any of the three forms mentioned above.
+  
+### Following an Agile Lifecycle: Scrum
+  ![ScrumDevelopmentLifecycle](https://user-images.githubusercontent.com/65113244/217248421-d1e50e7c-1cee-4d94-98b7-1a59a806c03f.png)
+  - Minumum of 3 sprints
+  - Use requirements specification to prioritise and select requirements for each sprint.
+  - Selected requirements will form your sprint backlog, which can be broken down into tasks for your group members to complete during the sprint.
+  - Each sprint should last between 1-3 weeks, and include design, implementation and testing.
+  - Hold regular 'scrum' meetings during the sprint to share status and discuss issues.
+  - A short informal demonstration should be given to the course tutors and discuss the outocmes of the sprint with respect to its planned backlog and tasks.!
+
+### Programming
+  - Programming in this unit is treated as a means to an end, enabling you to experience a test-driven software development lifecycle.
+  - Programming ability and code structure will not be assessed as part of this assignment, but you are required to produce a testable software system.
+  - You will be implementing your designs, carrying out software testing on your evolving system.
+  - You can chose any platform, and any object oriented programming language
+  
+### 'Tracking Data' for your PI software
+  - Your system can make use of any source of PI data
+  - e.g. Asking users to manually enter data by responding to questions in a form presented by the UI
+  - You may obtain data from sensors, e.g. Arduino components or devices like a Fitbit (using an API)
+  - You are not expected to develop working interfaces with existing technologies in order to acquire 'real' data, but are encouraged to do so
+  - You are welcome to mock up some tracking data to be used by your PI software, e.g. writing software to automatically generate artificial tracking data, simulating inputs from certain devices or services
 
   </p>
 </details>
