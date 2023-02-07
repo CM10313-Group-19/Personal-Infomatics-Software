@@ -1,6 +1,3 @@
-# Personal-Infomatics-Software
-Main repository for the coursework
-
 ## Project Requirements:
 
 ### Non-Functional Requirements
