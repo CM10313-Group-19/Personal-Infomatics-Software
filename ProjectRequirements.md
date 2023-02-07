@@ -118,37 +118,28 @@ titled appendices.
     - Indicate the authors of each section or subsection
   
   - [ ] Introduction (2 pages)
-    Account of the problem your software system is intended to address including:
     - A description of the problem area (Personal Informatics) supported by relevant literature (See
-NFR3.1 and NFR3.2), what can make a PI software system effective for its users, and a clear
-statement of the main idea behind your particular PI software system. 
+NFR3.1 and NFR3.2)
+    - What can make a PI software system effective for its users
+    - A clear statement of the main idea behind your particular PI software system. 
 
   - [ ] Agile Software Process Planning and Management (2 pages)
-    - Describe how you carried out your project as an Agile process, including:
+    - Describe how you carried out your project as an Agile process
     - How you planned and tracked your sprints
     - How Scrum meetings were used to manage the evolution of your idea and the features you decided to include in your software system.
 
   - [ ] Software Requirements Specification (5 pages)
-    - This section should include:
-    - Account of how you established your detailed system requirements (building on
-the initial requirements).
-    - A description of the specific domain of your personal informatics system, linked to
-the viewpoint of students as your target users.
-     - Use cases to illustrate the services your PI system is intended to offer to relevant
-actors, including target users.
-     - A set of functional and non-functional requirements for your system, organised into
-sensible groups and following the guidance given you in lectures (e.g. relationships
-and priorities).
+    - Account of how you established your detailed system requirements (building on the initial requirements).
+    - A description of the specific domain of your personal informatics system, linked to the viewpoint of students as your target users.
+    - Use cases to illustrate the services your PI system is intended to offer to relevant actors, including target users.
+     - A set of functional and non-functional requirements for your system, organised intosensible groups and following the guidance given you in lectures (e.g. relationships and priorities).
 
   - [ ] Design (5 pages)
     - A set of UML models describing the low-level design of your system (class models,
 sequence diagrams, etc.)
-    - A justification of your chosen design. This should explicitly show how your design
-meets both functional and non-functional requirements, making direct reference
-them and the rationale behind your design as it embodies your PI idea. 
-Make sure you include explanatory text with your design models: the meaning of a diagram
-is very rarely self-evident because it depends on an explanatory frame for interpretation. So
-you must make sure to express in words what you wish the reader to understand by them.
+    - A justification of your chosen design. This should explicitly show how your designmeets both functional and non-functional requirements, making direct reference
+them and the rationale behind your design as it embodies your PI idea. Make sure you include explanatory text with your design models: the meaning of a diagram
+is very rarely self-evident because it depends on an explanatory frame for interpretation. Soyou must make sure to express in words what you wish the reader to understand by them.
 
   - [ ] Software Testing (Verification) (2 pages)
     - Testing plans, indicating how you planned to perform verification of your PI system. These plans should reflect your requirements and design work, and be completed before any implementation (coding) work begins.
