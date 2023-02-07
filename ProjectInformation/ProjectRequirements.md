@@ -52,6 +52,9 @@ When incorporating requirements that have been provided in the initial software 
 
 ### Non-Functional Requirements
 
+<details><summary>Show requirements</summary>
+<p>
+
 1. **Software Development Process**
   - [ ] 1.1 Your software process must be consistent with Scrum methodology.
   - [ ] 1.2 Your software development should include at least three sprints. Dependencies: 1.1, 1.3
@@ -82,7 +85,14 @@ Dependencies: 3.2
 including production of test plans.
   - [ ] 4.2 Must provide evidence of testing (e.g. JUnit output)
   - [ ] 2.2 Functional Requirements
+  
+    </p>
+</details>
+
 ### Functional Requirements
+
+<details><summary>Show requirements</summary>
+<p>
 
 5. **Viewing and Collecting Tracking Data**
   - #### Initial Requirements:
@@ -127,3 +137,6 @@ goals (e.g. scoring points, receiving trophies/ badges,
 competing with other users)
   - #### Additional Requirements:
       - [ ] ...
+
+</p>
+</details>
