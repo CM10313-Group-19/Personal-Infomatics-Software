@@ -158,12 +158,12 @@ you must make sure to express in words what you wish the reader to understand by
     - A critique of your software system’s requirements specification, design and testing, including what might be improved and why you feel it would be better with these changes.
     - A critical reflection on the group’s software process, including evidence of Agility inyour software process, evidence of having evolved your requirements to reflect changes in understanding of problem and viability of designs. 
 
-  - [] References
+  - [ ] References
     - A list of references to articles from which you have gathered information as part of your
 research and have cited in the body of your report. We recommend that you consult the
 University guide to citing references, which is available from the University library.
 
-  - [] Final Group Contribution Form
+  - [ ] Final Group Contribution Form
     - The final Group Contribution Form (GCF), as described in Section 3.1. The example provided here illustrates how you might do this, including justification of high deviations from your group’s median level. 
 
 #### Notes:
