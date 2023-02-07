@@ -7,5 +7,9 @@
     <groupId>groupId</groupId>
     <artifactId>Personal-Infomatics-Software</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <java.version>19</java.version>
+    </properties>
     
 </project>
