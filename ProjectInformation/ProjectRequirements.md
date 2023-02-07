@@ -1,5 +1,3 @@
-# Project Requirements:
-
 <details><summary>Overview of Project</summary>
 <p>
 
@@ -47,6 +45,10 @@ You are expected to compare and contrast ideas from these sources. We expect you
 
   </p>
 </details>
+
+# Project Requirements:
+
+When incorporating requirements that have been provided in the initial software requirements specification, you should cite 'Coursework Specification' as their source
 
 ### Non-Functional Requirements
 
