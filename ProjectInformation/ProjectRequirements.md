@@ -52,14 +52,14 @@ When incorporating requirements that have been provided in the initial software 
 
 ### Non-Functional Requirements
 
-1. Software Development Process
+1. **Software Development Process**
   - [ ] 1.1 Your software process must be consistent with Scrum methodology.
   - [ ] 1.2 Your software development should include at least three sprints. Dependencies: 1.1, 1.3
   - [ ] 1.3 Each sprint should last between 1 and 3 weeks.
     Dependencies: 1.1, 1.2
   - [ ] 1.4 Must regularly review the functional requirement asssociated with envisioned system features.
 ---------------------------------------------------------------------
-2. Expanding Initial Requirements
+2. **Expanding Initial Requirements**
   - [ ] 2.1 Must expand upon all initial requirements, based on your
 PI research.
 Dependencies: 3.2
@@ -70,21 +70,21 @@ features you have chosen to offer.
 appropriate requirements gathering techniques.
 Dependencies: 2.1, 2.2
 ---------------------------------------------------------------------
-3. Background Research
+3. **Background Research**
   - [ ] 3.1 Must read and cite at least three articles in the area of
 Personal Informatics, at least one of which must be drawn
 from the reference section of this coursework document.
 Dependencies: 3.2
   - [ ] 3.2 Should read and cite at least six articles of any kind. 
 ---------------------------------------------------------------------
-4. Testing
+4. **Testing**
   - [ ] 4.1 Must adopt a test-driven development approach,
 including production of test plans.
   - [ ] 4.2 Must provide evidence of testing (e.g. JUnit output)
   - [ ] 2.2 Functional Requirements
 ### Functional Requirements
 
-5. Viewing and Collecting Tracking Data
+5. **Viewing and Collecting Tracking Data**
   - #### Initial Requirements:
     - [ ] 5.1 Store data on user activity relevant to the chosen PI
 concept (see Section 3 ‘Tracking Data’ of specification for more detail).
@@ -99,7 +99,7 @@ represents their mood for the day).
     - [ ] ...
  ---------------------------------------------------------------------
  
-6. Identifying Trends and Relationships in PI Data
+6. **Identifying Trends and Relationships in PI Data**
   - #### Initial Requirements:
   - [ ] 6.1 Permit a user to compare their data over time (e.g. to see
 if they have walked 5% more each day for the last n days,
@@ -114,7 +114,7 @@ days).
 
 ---------------------------------------------------------------------
 
-7. Goals and Achievements
+7. **Goals and Achievements**
   - #### Initial Requirements:
   - [ ] 7.1 Permit a user to manage targets (goals) for a tracked
 activity.
