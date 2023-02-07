@@ -1,3 +1,11 @@
+## What must be produced:
+  - A written report that explains:
+    -  Your analysis of a PI problem
+    -  Your SDLC (software development life cycle) approach 
+    -  Your products (spec, designs, test plans and results)
+    -  A critical analysis of your work. 
+  - A short video (2 minutes) that shows your working software system. 
+
 ## Project Requirements:
 
 ### Non-Functional Requirements
