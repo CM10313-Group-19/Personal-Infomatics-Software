@@ -1,6 +1,8 @@
+import javax.swing.*;
+
 public class Main {
 
-    public static void Main(String[] args){
-        System.out.println("Test");
+    public static void main(String[] args){
+
     }
 }
