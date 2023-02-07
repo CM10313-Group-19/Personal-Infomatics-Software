@@ -49,7 +49,7 @@ service (e.g. allowing the user to enter the number of cups
 of coffee consumed each day, or to enter a rating that
 represents their mood for the day).
   - #### Additional Requirements:
-    - [] ...
+    - [ ] ...
   
 
 6. Identifying Trends and Relationships in PI Data
@@ -63,7 +63,7 @@ a fixed period of time (e.g. to find out if changes in their
 mood have followed changes in their diet over the last 14
 days).
   - #### Additional Requirements:
-      - [] ...
+      - [ ] ...
 
 7. Goals and Achievements
   - #### Initial Requirements:
@@ -77,4 +77,4 @@ Productivity Goal >= 60%, Cups of Coffee Goal <= 2).
 goals (e.g. scoring points, receiving trophies/ badges,
 competing with other users)
   - #### Additional Requirements:
-      - [] ...
+      - [ ] ...
