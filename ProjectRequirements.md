@@ -159,12 +159,18 @@ you must make sure to express in words what you wish the reader to understand by
     - A critical reflection on the group’s software process, including evidence of Agility inyour software process, evidence of having evolved your requirements to reflect changes in understanding of problem and viability of designs. 
 
   - [ ] References
-    - A list of references to articles from which you have gathered information as part of your
-research and have cited in the body of your report. We recommend that you consult the
-University guide to citing references, which is available from the University library.
+    - List of references to articles from which you have gathered information as part of your research and have cited in the body of your report.
 
   - [ ] Final Group Contribution Form
-    - The final Group Contribution Form (GCF), as described in Section 3.1. The example provided here illustrates how you might do this, including justification of high deviations from your group’s median level. 
+    - The final Group Contribution Form (GCF), as described in Section 3.1.
+    - Include justification of high deviations from your group’s median level. 
+    - Include as the 1st appendix of the report
+ 
+  - [ ] Other Appendices
+    - Records of group meetings (minutes) as 2nd appendix
+    - Transcripts of interveiws and/or other evidence of primary research as 3rd appendix
+    - May include earlier design models to show evolution of ideas as an appendix
+    - Unit tests
 
 #### Notes:
   - All pages must be numbered
