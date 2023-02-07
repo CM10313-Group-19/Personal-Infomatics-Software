@@ -39,16 +39,18 @@ including production of test plans.
 
 5. Viewing and Collecting Tracking Data
   - #### Initial Requirements:
-  - [ ] 5.1 Store data on user activity relevant to the chosen PI
+    - [ ] 5.1 Store data on user activity relevant to the chosen PI
 concept (see Section 3 ‘Tracking Data’ of specification for more detail).
 Dependencies: 3
-  - [ ] 5.2 Allow the user to access tracking data that is stored.
-  - [ ] 5.3 Permit the user to manually enter any tracking data which
+    - [ ] 5.2 Allow the user to access tracking data that is stored.
+    - [ ] 5.3 Permit the user to manually enter any tracking data which
 can not be obtained automatically from a tracking device or
 service (e.g. allowing the user to enter the number of cups
 of coffee consumed each day, or to enter a rating that
 represents their mood for the day).
   - #### Additional Requirements:
+    - [] ...
+  
 
 6. Identifying Trends and Relationships in PI Data
   - #### Initial Requirements:
@@ -61,6 +63,7 @@ a fixed period of time (e.g. to find out if changes in their
 mood have followed changes in their diet over the last 14
 days).
   - #### Additional Requirements:
+      - [] ...
 
 7. Goals and Achievements
   - #### Initial Requirements:
@@ -74,3 +77,4 @@ Productivity Goal >= 60%, Cups of Coffee Goal <= 2).
 goals (e.g. scoring points, receiving trophies/ badges,
 competing with other users)
   - #### Additional Requirements:
+      - [] ...
