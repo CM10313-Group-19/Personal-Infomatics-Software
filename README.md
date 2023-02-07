@@ -1,7 +1,7 @@
 # Personal-Infomatics-Software
 Main repository for the coursework
 
-## Initial Requirements:
+## Project Requirements:
 
 ### Non-Functional Requirements
 1. Software Development Process
@@ -38,6 +38,7 @@ including production of test plans.
 ### Functional Requirements
 
 5. Viewing and Collecting Tracking Data
+  - #### Initial Requirements:
   - [ ] 5.1 Store data on user activity relevant to the chosen PI
 concept (see Section 3 ‘Tracking Data’ of specification for more detail).
 Dependencies: 3
@@ -47,8 +48,10 @@ can not be obtained automatically from a tracking device or
 service (e.g. allowing the user to enter the number of cups
 of coffee consumed each day, or to enter a rating that
 represents their mood for the day).
+  - #### Additional Requirements:
 
 6. Identifying Trends and Relationships in PI Data
+  - #### Initial Requirements:
   - [ ] 6.1 Permit a user to compare their data over time (e.g. to see
 if they have walked 5% more each day for the last n days,
 or if their diet is regularly less vegetable-intensive on a
@@ -57,8 +60,10 @@ Monday).
 a fixed period of time (e.g. to find out if changes in their
 mood have followed changes in their diet over the last 14
 days).
+  - #### Additional Requirements:
 
 7. Goals and Achievements
+  - #### Initial Requirements:
   - [ ] 7.1 Permit a user to manage targets (goals) for a tracked
 activity.
   - [ ] 7.2 Permit a user to set a daily or weekly goal value for a
@@ -68,3 +73,4 @@ Productivity Goal >= 60%, Cups of Coffee Goal <= 2).
   - [ ] 7.4 Incorporate a feature to motivate the user to achieve their
 goals (e.g. scoring points, receiving trophies/ badges,
 competing with other users)
+  - #### Additional Requirements:
