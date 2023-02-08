@@ -13,6 +13,7 @@ Main repository for the coursework
     - MeetingMinutes is a folder containing the minutes taken from each meeting
     - GuideToTheWrittenReport contains condensed information taken from the specification regarding what is expected from the report
     - MarkingScheme is take directly from the specification
+    - References is a folder initially containing all the references provided in the specification
     - A pdf copy of the specifcation
 ---------------------------------
   - **src**
