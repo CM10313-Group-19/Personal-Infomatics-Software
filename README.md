@@ -4,6 +4,7 @@ Main repository for the coursework
 ### Breakdown of repository
 <details><summary>View breakdown</summary>
 <p>
+  
 -----------------------------------
   - **ProjectInformation folder**
     - ProjectRequirements text file that has the initial requirements from the specification and space to add additional requirements.
@@ -25,5 +26,6 @@ Main repository for the coursework
     - File required for maven used to automaticly run tests
     - If external libraries are used, they can be added to the project as a dependancy here
 -------------------------------------------
+  
 </p></details>
 
