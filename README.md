@@ -7,19 +7,20 @@ Main repository for the coursework
   
   *note: This repository has been initially setup for java as it's the language that would make most sense for this project*
   
+
+---------------------------------
+  - **src**
+    - main/java contains the java class files that form the program, and is where code should go
+    - main/resources is the resource folder, e.g. for text files
+    - test/java contains the classes that contain unit tests where test cases should be created
 -----------------------------------
-  - **ProjectInformation folder**
+  - **ProjectInformation**
     - ProjectRequirements text file that has the initial requirements from the specification and space to add additional requirements.
     - MeetingMinutes is a folder containing the minutes taken from each meeting
     - GuideToTheWrittenReport contains condensed information taken from the specification regarding what is expected from the report
     - MarkingScheme is take directly from the specification
     - References is a folder initially containing all the references provided in the specification
     - A pdf copy of the specifcation
----------------------------------
-  - **src**
-    - main/java contains the java class files that form the program, and is where code should go
-    - main/resources is the resource folder, e.g. for text files
-    - test/java contains the classes that contain unit tests where test cases should be created
 -------------------------------------
   - **.github/workflows**
     - Contains the maven.yml folder that controls the continuos integration action that runs the tests in the test folder every time code is pushed to the github
