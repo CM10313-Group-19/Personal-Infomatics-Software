@@ -5,6 +5,8 @@ Main repository for the coursework
 <details><summary>View breakdown</summary>
 <p>
   
+  * note: This repository has been initially setup for java as thats the language that would make most sense for this project *
+  
 -----------------------------------
   - **ProjectInformation folder**
     - ProjectRequirements text file that has the initial requirements from the specification and space to add additional requirements.
