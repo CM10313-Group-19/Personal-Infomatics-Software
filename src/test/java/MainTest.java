@@ -1,8 +1,7 @@
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 
 public class MainTest {
-    @Test
+    @org.junit.Test
     void hcf() {
         // Test 1
         int[] numbers = { 12, 18, 24 };
