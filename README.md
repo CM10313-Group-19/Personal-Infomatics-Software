@@ -5,7 +5,7 @@ Main repository for the coursework
 <details><summary>View breakdown</summary>
 <p>
   
-  *note: This repository has been initially setup for java as it's the language that would make most sense for this project*
+  *note: This repository has been initially setup for java as it's the language that would make most sense for this project as it is robust for object-oriented programming and has a nice GUI library, and the language we have the most recent experience with in POP*
   
 
 ---------------------------------
