@@ -2,11 +2,18 @@ import javax.swing.*;
 
 public class Main {
 
-    //make a function that takes 2 integers and returns their highest common factor
-    public static int HCF(int a, int b){
+    //make a function that takes n integers and returns their highest common factor
+    public static int hcf(int... numbers){
         int hcf = 1;
-        for(int i = 1; i <= a && i <= b; i++){
-            if(a % i == 0 && b % i == 0){
+        for(int i = 1; i <= numbers[0]; i++){
+            boolean isHcf = true;
+            for(int j = 0; j < numbers.length; j++){
+                if(numbers[j] % i != 0){
+                    isHcf = false;
+                    break;
+                }
+            }
+            if(isHcf){
                 hcf = i;
             }
         }
