@@ -17,7 +17,7 @@ public class Main {
                 hcf = i;
             }
         }
-        return hcf+1;
+        return hcf;
     }
 
     public static void main(String[] args){
