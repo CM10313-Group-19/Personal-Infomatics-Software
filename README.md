@@ -5,7 +5,7 @@ Main repository for the coursework
 <details><summary>View breakdown</summary>
 <p>
   
-  * note: This repository has been initially setup for java as thats the language that would make most sense for this project *
+  *note: This repository has been initially setup for java as thats the language that would make most sense for this project*
   
 -----------------------------------
   - **ProjectInformation folder**
