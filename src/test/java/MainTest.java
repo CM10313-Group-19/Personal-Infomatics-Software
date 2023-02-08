@@ -1,12 +1,14 @@
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-public class MainTest {
-    @org.junit.Test
+import static org.junit.jupiter.api.Assertions.*;
+
+class MainTest {
+
+    @Test
     void hcf() {
-        // Test 1
-        int[] numbers = { 12, 18, 24 };
-        int expected = 6;
-        int actual = Main.hcf(numbers);
-        Assertions.assertEquals(expected, actual);
+        assertEquals(2, Main.hcf(2, 4, 6, 8));
+        assertEquals(1, Main.hcf(3, 5, 7, 9));
+        assertEquals(2, Main.hcf(2, 4, 6));
+        assertEquals(3, Main.hcf(3, 9, 15, 27));
     }
 }
