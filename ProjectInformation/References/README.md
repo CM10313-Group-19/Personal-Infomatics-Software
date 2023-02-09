@@ -11,7 +11,7 @@
   - Thomas Canning: <br>
   - Alexander Agafonov: <br>
 
-### List of references given in the specification ### 
+### List of references used (1-7 are from the specification) ### 
   1. ~Persuasive Technology in the Real World~
   2. One size does not fit all
   3. ~On Being Told How We Feel~
