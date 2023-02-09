@@ -13,7 +13,7 @@ Location: TBD
 
 </p></details>
 
-<details><summary>Topics for discussion</summary><p>
+<details><summary>Topics for discussion and notes</summary><p>
 
 *Add topics to be discussed at the next meeting here:*
   - ... 
