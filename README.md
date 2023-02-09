@@ -34,6 +34,7 @@ Main repository for the coursework
 ### What should be being worked on at the moment:
 <details><summary>View current</summary>
 <p>
+  
   - Each person should look at some references for the purpose of coming up with requirements and summarise them so they can be discussed. When going through a reference, add it/strikethrough it in the README in the references folder to avoid repetition. Each person should do 1-2 and then find an additional reference not listed in the specification, add it to the list of referances and number it, add the harvard referance, and add a pdf copy of the referance to the Referances folder.
   - Alex A is starting to create a questionaire to interview people and gain primary data to come up with requirements
   
