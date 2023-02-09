@@ -9,16 +9,16 @@ Main repository for the coursework
   - **src**
   
     - [main/java](/src/main/java) contains the java class files that form the program, and is where code should go
-    - [main/resources](/src/main/resources) is the resource folder, e.g. for text files
+    - [main/resources](/src/main/resources) is the resource folder, e.g. for files
     - [test/java](/src/test/java) contains the classes that contain unit tests where test cases should be created
 -----------------------------------
   - **ProjectInformation**
-    - [ProjectRequirements](/ProjectInformation/ProjectRequirements.md) text file that has the initial requirements from the specification and space to add additional requirements, as well as an overview of the task.
-    - MeetingMinutes is a folder containing the minutes for each meeting, which also contains the date and time of planned meetings, attendance, and topic for discussion which anyone can add to.
-    - GuideToTheWrittenReport contains condensed information taken from the specification regarding what is expected from the report
-    - MarkingScheme is taken directly from the specification
-    - References is a folder initially containing all the references provided in the specification
-    - A pdf copy of the specification
+    - [ProjectRequirements](/ProjectInformation/ProjectRequirements.md) is a markdown file that has the initial requirements from the specification and space to add additional requirements, as well as an overview of the task.
+    - [MeetingMinutes](/ProjectInformation/MeetingMinutes.md) is a folder containing the minutes for each meeting, which also contains the date and time of planned meetings, attendance, and topic for discussion which anyone can add to.
+    - [GuideToTheWrittenReport](/ProjectInformation/GuideToTheWrittenReport.md) contains condensed information taken from the specification regarding what is expected from the report
+    - [MarkingScheme](/ProjectInformation/MarkingScheme.md) is taken directly from the specification
+    - [References](/ProjectInformation/References) is a folder initially containing all the references provided in the specification
+    - [GuideToTheWrittenReport](/ProjectInformation/GuideToTheWrittenReport.md)A pdf copy of the specification
 -------------------------------------
   - **.github/workflows**
     - Contains the maven.yml folder that controls the continuous integration action that runs the tests in the test folder every time code is pushed to the GitHub
