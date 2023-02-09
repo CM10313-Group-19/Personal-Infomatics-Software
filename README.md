@@ -17,7 +17,7 @@ Main repository for the coursework
     - [MeetingMinutes](/ProjectInformation/MeetingMinutes) is a folder containing the minutes for each meeting, which also contains the date and time of planned meetings, attendance, and topic for discussion which anyone can add to.
     - [GuideToTheWrittenReport](/ProjectInformation/GuideToTheWrittenReport.md) contains condensed information taken from the specification regarding what is expected from the report
     - [MarkingScheme](/ProjectInformation/MarkingScheme.md) is taken directly from the specification
-    - [References](/ProjectInformation/References) is a folder initially containing all the references provided in the specification
+    - [References](/ProjectInformation/References) is a folder containing all the references provided in the specification, and all other references used should be added here. The README in this folder is used to track who is working on what references so no repetition happens. Referances also contains a folder where you should put reference summaries, which should be .md files.
     - [Coursework-CM10313-Specification.pdf](/ProjectInformation/ProjectInformation/Coursework-CM10313-Specification.pdf) is a pdf copy of the specification
 -------------------------------------
   - **.github/workflows**
