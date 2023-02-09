@@ -14,7 +14,7 @@ Main repository for the coursework
 -----------------------------------
   - **ProjectInformation**
     - [ProjectRequirements](/ProjectInformation/ProjectRequirements.md) is a markdown file that has the initial requirements from the specification and space to add additional requirements, as well as an overview of the task.
-    - [MeetingMinutes](/ProjectInformation/MeetingMinutes.md) is a folder containing the minutes for each meeting, which also contains the date and time of planned meetings, attendance, and topic for discussion which anyone can add to.
+    - [MeetingMinutes](/ProjectInformation/MeetingMinutes) is a folder containing the minutes for each meeting, which also contains the date and time of planned meetings, attendance, and topic for discussion which anyone can add to.
     - [GuideToTheWrittenReport](/ProjectInformation/GuideToTheWrittenReport.md) contains condensed information taken from the specification regarding what is expected from the report
     - [MarkingScheme](/ProjectInformation/MarkingScheme.md) is taken directly from the specification
     - [References](/ProjectInformation/References) is a folder initially containing all the references provided in the specification
