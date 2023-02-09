@@ -1,4 +1,4 @@
-*Note: Put your reference summaries in the ReferenceSummaries folder
+*Note: Put your reference summaries in the ReferenceSummaries folder*
 
 ### Who is working on what references: <br>
   - Artiom Casian: 1. Persuasive Technology <br>
