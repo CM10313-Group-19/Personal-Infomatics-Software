@@ -1,4 +1,6 @@
 Add your summaries to this folder: <br>
-Artiom: persuasive technology <br>
-Harry: Mobile Health Mashups, On Being Told How We Feel <br>
-Thomas: <br>
+Artiom Casian: 1. Persuasive Technology <br>
+Harry Crane: 7. Mobile Health Mashups, 3. On Being Told How We Feel <br>
+Thomas Canning: <br>
+Alexander Agafonov: <br>
+
