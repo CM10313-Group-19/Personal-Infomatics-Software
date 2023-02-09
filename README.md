@@ -7,10 +7,10 @@ Main repository for the coursework
 
 ---------------------------------
   - **src**
-  [this subtext](/src)
-    - main/java contains the java class files that form the program, and is where code should go
-    - main/resources is the resource folder, e.g. for text files
-    - test/java contains the classes that contain unit tests where test cases should be created
+  
+    - [main/java](/src/main/java) contains the java class files that form the program, and is where code should go
+    - [main/java](/src/main/resources) is the resource folder, e.g. for text files
+    - [test/java](/src/test/java) contains the classes that contain unit tests where test cases should be created
 -----------------------------------
   - **ProjectInformation**
     - ProjectRequirements text file that has the initial requirements from the specification and space to add additional requirements, as well as an overview of the task.
