@@ -9,11 +9,11 @@ Main repository for the coursework
   - **src**
   
     - [main/java](/src/main/java) contains the java class files that form the program, and is where code should go
-    - [main/java](/src/main/resources) is the resource folder, e.g. for text files
+    - [main/resources](/src/main/resources) is the resource folder, e.g. for text files
     - [test/java](/src/test/java) contains the classes that contain unit tests where test cases should be created
 -----------------------------------
   - **ProjectInformation**
-    - ProjectRequirements text file that has the initial requirements from the specification and space to add additional requirements, as well as an overview of the task.
+    - [ProjectRequirements](/ProjectInformation/ProjectRequirements) text file that has the initial requirements from the specification and space to add additional requirements, as well as an overview of the task.
     - MeetingMinutes is a folder containing the minutes for each meeting, which also contains the date and time of planned meetings, attendance, and topic for discussion which anyone can add to.
     - GuideToTheWrittenReport contains condensed information taken from the specification regarding what is expected from the report
     - MarkingScheme is taken directly from the specification
