@@ -1,6 +1,9 @@
 # Referance Tracker
 
-*Note: Put your reference summaries in the ReferenceSummaries folder*
+*Note:*
+  - Put your reference summaries in the ReferenceSummaries folder
+  - Before working on a reference, check the README to make sure no one has already summarised that referance
+  - Once you start reading a reference, strikethrough it on the list
 
 ### Who is working on what references: <br>
   - Artiom Casian: 1. Persuasive Technology in the Real World <br>
