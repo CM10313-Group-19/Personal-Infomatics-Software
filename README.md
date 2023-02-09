@@ -18,7 +18,7 @@ Main repository for the coursework
     - [GuideToTheWrittenReport](/ProjectInformation/GuideToTheWrittenReport.md) contains condensed information taken from the specification regarding what is expected from the report
     - [MarkingScheme](/ProjectInformation/MarkingScheme.md) is taken directly from the specification
     - [References](/ProjectInformation/References) is a folder initially containing all the references provided in the specification
-    - [GuideToTheWrittenReport](/ProjectInformation/GuideToTheWrittenReport.md)A pdf copy of the specification
+    - [Coursework-CM10313-Specification.pdf](/ProjectInformation/ProjectInformation/Coursework-CM10313-Specification.pdf) is a pdf copy of the specification
 -------------------------------------
   - **.github/workflows**
     - Contains the maven.yml folder that controls the continuous integration action that runs the tests in the test folder every time code is pushed to the GitHub
