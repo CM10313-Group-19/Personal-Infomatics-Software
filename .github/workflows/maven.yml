@@ -16,7 +16,7 @@ on:
 
 jobs:
   build:
-    name: View Tests
+    name: Tests
 
     runs-on: ubuntu-latest
 
