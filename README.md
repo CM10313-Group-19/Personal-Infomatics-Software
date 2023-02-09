@@ -7,6 +7,7 @@ Main repository for the coursework
 
 ---------------------------------
   - **src**
+  [this subtext](/src)
     - main/java contains the java class files that form the program, and is where code should go
     - main/resources is the resource folder, e.g. for text files
     - test/java contains the classes that contain unit tests where test cases should be created
