@@ -12,7 +12,7 @@ The assignment is to research, specify, design, develop and test software for a 
   - Coffee consumption
   - Mood
   - Screen time
-  - Cooking with fresh vegetables
+  - Cooking with fresh vegetables <br>
 Your PI system should collect more than 1 kind of data, so possible relations between kinds of PI data can be explored. 
 
 The task will involve additional research in the domain of PI, and must involve:
