@@ -35,7 +35,8 @@ Main repository for the coursework
 <details><summary>View current</summary>
 <p>
   
-  - Each person should look at some references for the purpose of coming up with requirements and summarise them so they can be discussed and allow every one in the group to quickly see all the usefull information from the references without having to read them all. 
+  - Each person should look at some references for the purpose of coming up with requirements and summarise them so they can be discussed and allow every one in the group to quickly see all the usefull information from the references without having to read them all.
+  - Use the .md file in the ReferenceSummaries folder to create your summary, and stick to the established naming convention
   - When going through a reference, add it/strikethrough it in the README in the references folder to avoid repetition. Each person should do 1-2 and then find an additional reference not listed in the specification, add it to the list of referances and number it, add the harvard referance, and add a pdf copy of the referance to the Referances folder.
   - Alex A is starting to create a questionaire to eventually interview people and gain primary data to also be used to come up with requirements.
   - Harry C is looking into how the backend can be creatd
