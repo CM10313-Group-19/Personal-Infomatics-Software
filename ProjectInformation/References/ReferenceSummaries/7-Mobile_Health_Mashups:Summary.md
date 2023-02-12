@@ -1,0 +1,5 @@
+# Reference (7). (Mobile Health Mashups)
+
+**DONE WITH AI**
+
+This paper presents the Mobile Health Mashups system, a mobile service that collects data from a variety of health and wellbeing sensors and presents significant correlations across sensors in a mobile widget as well as on a mobile web application. The system is designed to help people discover correlations between multiple data streams, such as weight and step count, and contextual data, such as calendar free/busy data, location, and people around them, to improve their overall health and wellbeing. The Mobile Health Mashups system was tested with a group of users and the results showed a positive impact on user health and wellbeing. The system was also evaluated through surveys, interviews and field studies. The results showed that users found the system to be useful and easy to use, and that the system was successful in helping users to identify correlations between their data. Finally, the system was found to be well-received by users, who reported improved health outcomes after using the system.
