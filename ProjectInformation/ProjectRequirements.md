@@ -19,7 +19,7 @@ The task will involve additional research in the domain of PI, and must involve:
   1. Articles on PI to help chose the types of habits and PI data you will gather
   2. Interviewing potential users (other students) about your PI concept
   3. Comparing existing PI systems that are related to your challenge
-You are expected to compare and contrast ideas from these sources. We expect you to make use of the Computer Science subject resources linked from the University of Bath Library at http://www.bath.ac.uk/library/subjects/comp-sci/. You areexpected to adjust your understanding of your PI concept as you go from sprint to sprint, with the sprint reviews incorporating additional research members of your group have done in any of the three forms mentioned above.
+You are expected to compare and contrast ideas from these sources. We expect you to make use of the Computer Science subject resources linked from the University of Bath Library at http://www.bath.ac.uk/library/subjects/comp-sci/. You are expected to adjust your understanding of your PI concept as you go from sprint to sprint, with the sprint reviews incorporating additional research members of your group have done in any of the three forms mentioned above.
   
 ### Following an Agile Lifecycle: Scrum
   ![ScrumDevelopmentLifecycle](https://user-images.githubusercontent.com/65113244/217248421-d1e50e7c-1cee-4d94-98b7-1a59a806c03f.png)
