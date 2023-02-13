@@ -7,7 +7,7 @@
   - If you add a reference not given in the specification, add it to the reference folder and number it, then add the Harvard reference so it can be referanced in the written report.
 
 ### Who is working on what references: <br>
-  - Artiom Casian: 1. Persuasive Technology in the Real World <br>
+  - Artiom Casian: 1. Persuasive Technology in the Real World 5. Personal informatics in practice <br>
   - Harry Crane: 3. On Being Told How We Feel, 7. Mobile Health Mashups  <br>
   - Thomas Canning: 2. One size does not fit all <br>
   - Alexander Agafonov: <br>
@@ -17,7 +17,7 @@
   2. ~One size does not fit all~
   3. ~On Being Told How We Feel~
   4. ~A stage-based model of personal informatics systems~
-  5. Personal informatics in practice
+  5. ~Personal informatics in practice~
   6. Designing a personal informatics system
   7. ~Mobile Health Mashups~
   8. ...
