@@ -34,8 +34,8 @@ Main repository for the coursework
 ### What should be being worked on at the moment:
 <details><summary>View current</summary>
 <p>
+  
   - Thinking about what our requirements should be ready for gathering them on Friday.
   - Alex A is gathering interview data
-  - Continue to attempt to contact Arthur
 </p></details>
 
