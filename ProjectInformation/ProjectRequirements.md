@@ -99,14 +99,18 @@ including production of test plans.
     - [ ] 5.1 Store data on user activity relevant to the chosen PI
 concept (see Section 3 ‘Tracking Data’ of specification for more detail).
 Dependencies: 3
+      - [ ] 5.1.1 Able to store name of food, calories, and when it was eaten. 
+      - [ ] 5.1.2 Optional ability to store protein, carbohydrates and fat data
+      - [ ] 5.1.3 Step count for each day
+      - [ ] 5.1.4 Additional workout information, e.g. name of excercise, calories burnt, length of workout, distance etc
     - [ ] 5.2 Allow the user to access tracking data that is stored.
+      - [ ] 5.2.1 Ability to look at past work out data and historical food data.
     - [ ] 5.3 Permit the user to manually enter any tracking data which
 can not be obtained automatically from a tracking device or
 service (e.g. allowing the user to enter the number of cups
 of coffee consumed each day, or to enter a rating that
 represents their mood for the day).
-  - #### Additional Requirements:
-    - [ ] ...
+      - [ ] 5.3.1 User enters information like weight, height that can be used to calculate information
  ---------------------------------------------------------------------
  
 6. **Identifying Trends and Relationships in PI Data**
@@ -115,12 +119,13 @@ represents their mood for the day).
 if they have walked 5% more each day for the last n days,
 or if their diet is regularly less vegetable-intensive on a
 Monday). 
+    - [ ] 6.1.1 Track step count each day over time
+    - [ ] 6.1.2 Track other stuff over time
   - [ ] 6.2 Permit a user to compare different kinds of PI data within
 a fixed period of time (e.g. to find out if changes in their
 mood have followed changes in their diet over the last 14
 days).
-  - #### Additional Requirements:
-      - [ ] ...
+    - [ ]
 
 ---------------------------------------------------------------------
 
@@ -128,13 +133,16 @@ days).
   - #### Initial Requirements:
   - [ ] 7.1 Permit a user to manage targets (goals) for a tracked
 activity.
+    - [ ] User can add an exercise target and if they meet they get a visual/audio reward
   - [ ] 7.2 Permit a user to set a daily or weekly goal value for a
 particular data variable (e.g. Steps Goal >= 10000,
 Productivity Goal >= 60%, Cups of Coffee Goal <= 2).
   - [ ] 7.3 Permit a user to update or change a goal.
+    - [ ] Suggested goals will be provided and user can change the goals themselves.
   - [ ] 7.4 Incorporate a feature to motivate the user to achieve their
 goals (e.g. scoring points, receiving trophies/ badges,
 competing with other users)
+    - [ ] 7.4.1 Trophy/badge system will be used.
   - #### Additional Requirements:
       - [ ] ...
 
