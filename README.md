@@ -35,7 +35,6 @@ Main repository for the coursework
 <details><summary>View current</summary>
 <p>
   
-  - Thinking about what our requirements should be ready for gathering them on Friday.
-  - Alex A is gathering interview data
+  - Preparing for 1st sprint
 </p></details>
 
