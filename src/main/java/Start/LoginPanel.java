@@ -3,6 +3,8 @@ package Start;
 import javax.swing.*;
 import java.awt.*;
 
+import static java.awt.Color.black;
+
 public class LoginPanel extends JPanel {
     private JTextField usernameTextField;
     private JLabel passwordLabel;
@@ -10,10 +12,10 @@ public class LoginPanel extends JPanel {
     private JPasswordField passwordField;
     private JCheckBox showPasswordBox;
     private JButton loginButton;
-    private JButton createAccountButton;
+    private JButton signUpButton;
     public JPanel formPanel;
 
-    public LoginPanel() {
+    public LoginPanel(StartPage startPage){
 
         formPanel = new JPanel();
         formPanel.setBackground(new Color(236, 240, 241, 180));
@@ -28,6 +30,14 @@ public class LoginPanel extends JPanel {
             } else {
                 passwordField.setEchoChar('*');
             }
+        });
+
+        //If signup button is clicked, the signup panel will be displayed
+        signUpButton.addActionListener(e -> {
+            startPage.remove(startPage.loginPanel.formPanel);
+            startPage.SwitchPanel(startPage.signupPanel.formPanel);
+            startPage.revalidate();
+            startPage.repaint();
         });
     }
 
