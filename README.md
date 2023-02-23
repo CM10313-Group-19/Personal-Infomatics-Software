@@ -35,6 +35,6 @@ Main repository for the coursework
 <details><summary>View current</summary>
 <p>
   
-  - Preparing for 1st sprint
+  - 1st sprint
 </p></details>
 
