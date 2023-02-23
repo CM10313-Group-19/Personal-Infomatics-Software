@@ -1,24 +1,25 @@
-package Start;
+package program.Start;
+
+import program.MainFrame;
 
 import javax.swing.*;
 import java.awt.*;
-
 public class LoginPanel extends JPanel {
-    private JTextField emailTextField;
-    private JLabel passwordLabel;
-    private JLabel emailLabel;
-    private JPasswordField passwordField;
-    private JCheckBox showPasswordBox;
-    private JButton loginButton;
-    private JButton signUpButton;
+    private final JTextField emailTextField;
+    private final JPasswordField passwordField;
+    private final JCheckBox showPasswordBox;
     public JPanel formPanel;
 
-    public LoginPanel(StartPage startPage){
+    public LoginPanel(StartPage startPage, MainFrame mainFrame){
 
         formPanel = new JPanel();
         formPanel.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(new Color(52, 73, 94), 3),
-                BorderFactory.createEmptyBorder(100, 80, 100, 80)));
+                BorderFactory.createEmptyBorder(100, 100, 100, 100)));
+
+        JLabel titleLabel = new JLabel("Personal Infomatics");
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 25));
+        titleLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 30, 0));
 
         //set layout to gridbaglayout
         formPanel.setLayout(new GridBagLayout());
@@ -28,38 +29,43 @@ public class LoginPanel extends JPanel {
 
         c.gridx = 0;
         c.gridy = 0;
-        emailLabel = new JLabel("Email");
-        formPanel.add(emailLabel, c);
+        formPanel.add(titleLabel, c);
 
         c.gridx = 0;
         c.gridy = 1;
-        emailTextField = new JTextField();
-        formPanel.add(emailTextField, c);
+        JLabel emailLabel = new JLabel("Email");
+        formPanel.add(emailLabel, c);
 
         c.gridx = 0;
         c.gridy = 2;
-        passwordLabel = new JLabel("Password");
-        formPanel.add(passwordLabel, c);
+        emailTextField = new JTextField();
+        emailTextField.setPreferredSize(new Dimension(200, 20));
+        formPanel.add(emailTextField, c);
 
         c.gridx = 0;
         c.gridy = 3;
+        JLabel passwordLabel = new JLabel("Password");
+        formPanel.add(passwordLabel, c);
+
+        c.gridx = 0;
+        c.gridy = 4;
         passwordField = new JPasswordField();
         formPanel.add(passwordField, c);
 
         c.gridx = 0;
-        c.gridy = 4;
+        c.gridy = 5;
         showPasswordBox = new JCheckBox("Show Password");
         formPanel.add(showPasswordBox, c);
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(1,2));
-        loginButton = new JButton("Login");
+        JButton loginButton = new JButton("Login");
         buttonPanel.add(loginButton);
-        signUpButton = new JButton("Sign Up");
+        JButton signUpButton = new JButton("Sign Up");
         buttonPanel.add(signUpButton);
 
         c.gridx = 0;
-        c.gridy = 5;
+        c.gridy = 6;
         c.gridwidth = 2;
         formPanel.add(buttonPanel, c);
 
@@ -73,15 +79,13 @@ public class LoginPanel extends JPanel {
         });
 
         //Once signup button is clicked, next stage of signup will be shown
-        signUpButton.addActionListener(e -> {
-            System.out.println(formPanel.getSize());
-            startPage.SwitchPanel(startPage.signupPanel1.formPanel);
-        });
+        signUpButton.addActionListener(e -> startPage.SwitchPanel(startPage.signupPanel1.formPanel));
 
         //Only allow login if email and password are valid
         loginButton.addActionListener(e -> {
             if (startPage.Login(emailTextField.getText(), new String(passwordField.getPassword()))) {
                 System.out.println("Login successful");
+                mainFrame.SwitchPanel(mainFrame.mainPanel);
             } else {
                 JOptionPane.showMessageDialog(null, "Invalid email or password");
             }
