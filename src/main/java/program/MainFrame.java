@@ -7,6 +7,8 @@ import java.awt.*;
 
 public class MainFrame extends JFrame {
     public JPanel mainPanel;
+    public MainPage mainPage;
+    public StartPage startPage;
 
     public MainFrame() {
 
@@ -17,13 +19,14 @@ public class MainFrame extends JFrame {
         this.setMinimumSize(new Dimension(400, 620));
         ImageIcon frameIcon = new ImageIcon("src/main/resources/logo.png");
         this.setIconImage(frameIcon.getImage());
-        StartPage startPage = new StartPage(this);
-        MainPage mainPage = new MainPage();
+        mainPage = new MainPage();
+        startPage = new StartPage(this);
         this.add(startPage);
         this.setVisible(true);
     }
     public void SwitchPanel(JPanel panel){
         this.getContentPane().removeAll();
+        System.out.println(panel);
         this.add(panel);
         this.revalidate();
         this.repaint();

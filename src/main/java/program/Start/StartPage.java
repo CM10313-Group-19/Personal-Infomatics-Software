@@ -17,7 +17,6 @@ public class StartPage extends JPanel {
     public SignupPanel2 signupPanel2;
 
     public StartPage(MainFrame mainFrame) {
-
         loginPanel = new LoginPanel(this, mainFrame);
         signupPanel1 = new SignupPanel1(this);
         signupPanel2 = new SignupPanel2(this);
