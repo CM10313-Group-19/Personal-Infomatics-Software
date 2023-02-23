@@ -19,7 +19,7 @@ public class StartPage extends JPanel {
     public StartPage(MainFrame mainFrame) {
         loginPanel = new LoginPanel(this, mainFrame);
         signupPanel1 = new SignupPanel1(this);
-        signupPanel2 = new SignupPanel2(this);
+        signupPanel2 = new SignupPanel2(this, mainFrame);
         this.setBackground(new Color(230, 126, 34));
         this.setLayout(new GridBagLayout());
         this.add(loginPanel.formPanel);

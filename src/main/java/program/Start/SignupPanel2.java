@@ -1,5 +1,6 @@
 package program.Start;
 import com.toedter.calendar.JDateChooser;
+import program.MainFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,7 +21,7 @@ public class SignupPanel2 extends JPanel {
     public JPanel formPanel;
 
 
-    public SignupPanel2(StartPage startPage){
+    public SignupPanel2(StartPage startPage, MainFrame mainFrame){
 
         formPanel = new JPanel();
         formPanel.setBorder(BorderFactory.createLineBorder(new Color(52, 73, 94), 3));
@@ -92,17 +93,22 @@ public class SignupPanel2 extends JPanel {
 
         formPanel.add(bottomPanel, BorderLayout.CENTER);
 
-        signUpButton.addActionListener(e -> {
-        });
-
-
         //If back button is clicked, loginPanel will be displayed
         backButton.addActionListener(e -> {
             startPage.SwitchPanel(startPage.signupPanel1.formPanel);
         });
 
         signUpButton.addActionListener(e -> {;
-            startPage.createAccount(startPage.signupPanel1.getEmail(), startPage.signupPanel1.getPassword(),nameTextField.getText(), datePicker.getDate(), Integer.parseInt(weightTextField.getText()));
+            if (nameTextField.getText().equals("") || datePicker.getDate() == null || weightTextField.getText().equals("") || Integer.parseInt(weightTextField.getText()) <= 0){
+                JOptionPane.showMessageDialog(null, "Please fill in all fields");
+            }
+            else if(Integer.parseInt(weightTextField.getText()) > 635){
+                JOptionPane.showMessageDialog(null, "Please enter a valid weight");
+            }
+            else {
+                startPage.createAccount(startPage.signupPanel1.getEmail(), startPage.signupPanel1.getPassword(), nameTextField.getText(), datePicker.getDate(), Integer.parseInt(weightTextField.getText()));
+                mainFrame.SwitchPanel(mainFrame.mainPage);
+            }
         });
 
     }
