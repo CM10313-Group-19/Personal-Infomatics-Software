@@ -3,7 +3,7 @@
 
 ## Overview of Project:
 
-Purpose of the assignment: Exercise and demonstrate an agile approach to the software development life cycle, with a focus on the process of production rather than functionality of software, reviewing the validity of requirements and designs as the project evolves through its lifecycle.
+Purpose of the assignment: MainProgram.Exercise and demonstrate an agile approach to the software development life cycle, with a focus on the process of production rather than functionality of software, reviewing the validity of requirements and designs as the project evolves through its lifecycle.
 
 ### The Personal Informatics software system:
 
