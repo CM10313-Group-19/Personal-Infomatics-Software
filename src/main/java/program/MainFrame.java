@@ -26,7 +26,6 @@ public class MainFrame extends JFrame {
     }
     public void SwitchPanel(JPanel panel){
         this.getContentPane().removeAll();
-        System.out.println(panel);
         this.add(panel);
         this.revalidate();
         this.repaint();

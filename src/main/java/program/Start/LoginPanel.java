@@ -84,7 +84,6 @@ public class LoginPanel extends JPanel {
         //Only allow login if email and password are valid
         loginButton.addActionListener(e -> {
             if (startPage.Login(emailTextField.getText(), new String(passwordField.getPassword()))) {
-                System.out.println("Login successful");
                 mainFrame.SwitchPanel(mainFrame.mainPage);
             } else {
                 JOptionPane.showMessageDialog(null, "Invalid email or password");

@@ -1,24 +1,23 @@
 package program.MainProgram;
-
 import program.MainFrame;
-import program.Start.LoginPanel;
-import program.Start.SignupPanel1;
-import program.Start.SignupPanel2;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class MainPage extends JPanel {
     public JPanel mainPagePanel;
+    public Exercise exercisePanel;
+    public Food foodPanel;
+    public Sleep sleepPanel;
 
     /**
      * Main page of the program
      */
     public MainPage(MainFrame mainFrame) {
-        Exercise exercisePanel = new Exercise(this, mainFrame);
-        Food foodPanel = new Food(this, mainFrame);
-        Sleep sleepPanel = new Sleep(this, mainFrame);
-        Menu menu = new Menu(this, mainFrame, exercisePanel, foodPanel, sleepPanel);
+        exercisePanel = new Exercise(this, mainFrame);
+        foodPanel = new Food(this, mainFrame);
+        sleepPanel = new Sleep(this, mainFrame);
+        Menu menu = new Menu(this, mainFrame);
         this.setBackground(new Color(230, 126, 34));
         this.setLayout(new GridBagLayout());
         this.add(menu.formPanel);
