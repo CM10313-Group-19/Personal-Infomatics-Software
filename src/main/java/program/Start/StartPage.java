@@ -1,8 +1,6 @@
 package program.Start;
 import program.MainFrame;
-
-import javax.swing.*;
-import java.awt.*;
+import program.MainGUIPanel;
 import java.util.Date;
 
 
@@ -11,30 +9,17 @@ import java.util.Date;
  * and should contain the logic elements for validating login and creating a new account.
  */
 
-public class StartPage extends JPanel {
+public class StartPage extends MainGUIPanel {
     public LoginPanel loginPanel;
     public SignupPanel1 signupPanel1;
     public SignupPanel2 signupPanel2;
 
     public StartPage(MainFrame mainFrame) {
+        super(mainFrame);
         loginPanel = new LoginPanel(this, mainFrame);
         signupPanel1 = new SignupPanel1(this);
         signupPanel2 = new SignupPanel2(this, mainFrame);
-        this.setBackground(new Color(230, 126, 34));
-        this.setLayout(new GridBagLayout());
         this.add(loginPanel.formPanel);
-        this.setVisible(true);
-    }
-
-    /**
-     * Removes the panel StartPage is currently displaying and replaces it with the JPanel passed in
-     * @param formPanel is the JPanel that will be displayed
-     */
-    public void SwitchPanel(JPanel formPanel) {
-        this.removeAll();
-        this.add(formPanel);
-        this.revalidate();
-        this.repaint();
     }
 
     /**
