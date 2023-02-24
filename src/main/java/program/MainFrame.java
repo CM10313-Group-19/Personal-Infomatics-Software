@@ -19,7 +19,7 @@ public class MainFrame extends JFrame {
         this.setMinimumSize(new Dimension(400, 620));
         ImageIcon frameIcon = new ImageIcon("src/main/resources/logo.png");
         this.setIconImage(frameIcon.getImage());
-        mainPage = new MainPage();
+        mainPage = new MainPage(this);
         startPage = new StartPage(this);
         this.add(startPage);
         this.setVisible(true);
