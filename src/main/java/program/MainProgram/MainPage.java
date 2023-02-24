@@ -18,9 +18,10 @@ public class MainPage extends JPanel {
         Exercise exercisePanel = new Exercise(this, mainFrame);
         Food foodPanel = new Food(this, mainFrame);
         Sleep sleepPanel = new Sleep(this, mainFrame);
+        Menu menu = new Menu(this, mainFrame, exercisePanel, foodPanel, sleepPanel);
         this.setBackground(new Color(230, 126, 34));
         this.setLayout(new GridBagLayout());
-        //this.add(loginPanel.formPanel);
+        this.add(menu.formPanel);
         this.setVisible(true);
         }
 
