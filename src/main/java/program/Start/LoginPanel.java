@@ -19,7 +19,7 @@ public class LoginPanel extends JPanel {
         titleLabel.setFont(new Font("Arial", Font.BOLD, 25));
         titleLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 30, 0));
 
-        //set layout to gridbaglayout
+        //set layout to gridbaglayout and add components
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -84,6 +84,7 @@ public class LoginPanel extends JPanel {
             if (startPage.Login(emailTextField.getText(), new String(passwordField.getPassword()))) {
                 mainFrame.SwitchPanel(mainFrame.mainPage);
             } else {
+                //If email or password is invalid, show error message in a popup
                 JOptionPane.showMessageDialog(null, "Invalid email or password");
             }
         });

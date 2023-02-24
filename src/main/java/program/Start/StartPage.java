@@ -3,7 +3,6 @@ import program.MainFrame;
 import program.MainGUIPanel;
 import java.util.Date;
 
-
 /**
  * StartPage is the class that is instantiated to allow the user to login, or to create a new account. It contains the GUI elements for logging in and signing up,
  * and should contain the logic elements for validating login and creating a new account.
