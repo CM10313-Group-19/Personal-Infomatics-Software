@@ -19,7 +19,7 @@ public class StartPage extends MainGUIPanel {
         loginPanel = new LoginPanel(this, mainFrame);
         signupPanel1 = new SignupPanel1(this);
         signupPanel2 = new SignupPanel2(this, mainFrame);
-        this.add(loginPanel.formPanel);
+        this.add(loginPanel);
     }
 
     /**

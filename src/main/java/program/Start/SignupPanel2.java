@@ -18,14 +18,11 @@ public class SignupPanel2 extends JPanel {
     private JTextField weightTextField;
     private JButton signUpButton;
     private JButton backButton;
-    public JPanel formPanel;
-
 
     public SignupPanel2(StartPage startPage, MainFrame mainFrame){
 
-        formPanel = new JPanel();
-        formPanel.setBorder(BorderFactory.createLineBorder(new Color(52, 73, 94), 3));
-        formPanel.setLayout(new BorderLayout());
+        this.setBorder(BorderFactory.createLineBorder(new Color(52, 73, 94), 3));
+        this.setLayout(new BorderLayout());
 
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -35,7 +32,7 @@ public class SignupPanel2 extends JPanel {
         ImageIcon backArrow = new ImageIcon(newBackArrowImage);
         backButton = new JButton(backArrow);
         topPanel.add(backButton);
-        formPanel.add(topPanel, BorderLayout.NORTH);
+        this.add(topPanel, BorderLayout.NORTH);
 
         //set layout to gridbaglayout
         JPanel bottomPanel = new JPanel();
@@ -91,11 +88,11 @@ public class SignupPanel2 extends JPanel {
         signUpButton = new JButton("Sign Up");
         bottomPanel.add(signUpButton, c);
 
-        formPanel.add(bottomPanel, BorderLayout.CENTER);
+        this.add(bottomPanel, BorderLayout.CENTER);
 
         //If back button is clicked, loginPanel will be displayed
         backButton.addActionListener(e -> {
-            startPage.SwitchPanel(startPage.signupPanel1.formPanel);
+            startPage.SwitchPanel(startPage.signupPanel1);
         });
 
         signUpButton.addActionListener(e -> {;

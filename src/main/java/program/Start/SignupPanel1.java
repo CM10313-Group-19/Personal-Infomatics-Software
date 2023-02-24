@@ -7,13 +7,11 @@ public class SignupPanel1 extends JPanel {
     private final JPasswordField passwordField;
     private final JPasswordField confirmPasswordField;
     private final JCheckBox showPasswordBox;
-    public JPanel formPanel;
 
     public SignupPanel1(StartPage startPage){
 
-        formPanel = new JPanel();
-        formPanel.setBorder(BorderFactory.createLineBorder(new Color(52, 73, 94), 3));
-        formPanel.setLayout(new BorderLayout());
+        this.setBorder(BorderFactory.createLineBorder(new Color(52, 73, 94), 3));
+        this.setLayout(new BorderLayout());
 
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -24,7 +22,7 @@ public class SignupPanel1 extends JPanel {
         JButton backButton = new JButton(backArrow);
         topPanel.add(backButton);
 
-        formPanel.add(topPanel, BorderLayout.NORTH);
+        this.add(topPanel, BorderLayout.NORTH);
 
         //set layout to gridbaglayout
         JPanel bottomPanel = new JPanel();
@@ -75,11 +73,11 @@ public class SignupPanel1 extends JPanel {
         c.gridwidth = 2;
         JButton signUpButton = new JButton("Sign Up");
         bottomPanel.add(signUpButton, c);
-        formPanel.add(bottomPanel, BorderLayout.CENTER);
+        this.add(bottomPanel, BorderLayout.CENTER);
 
         //When the showPassword box is ticked, passwordField will un-redact what has been typed in the password field
         showPasswordBox.addActionListener(e -> {
-            System.out.println(formPanel.getSize());
+            System.out.println(this.getSize());
             if (showPasswordBox.isSelected()) {
                 passwordField.setEchoChar((char) 0);
                 confirmPasswordField.setEchoChar((char) 0);
@@ -93,7 +91,7 @@ public class SignupPanel1 extends JPanel {
         signUpButton.addActionListener(e -> {
             String attemptCreateAccount = (startPage.validateEmailAndPassword(emailTextField.getText(), passwordField.getText(), confirmPasswordField.getText()));
             switch (attemptCreateAccount) {
-                case "success" -> startPage.SwitchPanel(startPage.signupPanel2.formPanel);
+                case "success" -> startPage.SwitchPanel(startPage.signupPanel2);
                 case "Passwords do not match" -> JOptionPane.showMessageDialog(null, "Passwords do not match");
                 case "Email already in use" -> JOptionPane.showMessageDialog(null, "Email already in use");
                 case "invalid email" -> JOptionPane.showMessageDialog(null, "Invalid email");
@@ -104,7 +102,7 @@ public class SignupPanel1 extends JPanel {
 
 
         //If back button is clicked, loginPanel will be displayed
-        backButton.addActionListener(e -> startPage.SwitchPanel(startPage.loginPanel.formPanel));
+        backButton.addActionListener(e -> startPage.SwitchPanel(startPage.loginPanel));
 
     }
     public String getEmail() {

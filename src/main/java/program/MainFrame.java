@@ -6,7 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainFrame extends JFrame {
-    public JPanel mainPanel;
     public MainPage mainPage;
     public StartPage startPage;
 
