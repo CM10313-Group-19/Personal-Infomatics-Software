@@ -15,12 +15,7 @@ public class MainPage extends MainGUIPanel {
         foodPanel = new Food(this, mainFrame);
         sleepPanel = new Sleep(this, mainFrame);
         Menu menu = new Menu(this, mainFrame);
-        this.add(menu.formPanel);
+        this.add(menu);
         }
-
-        /**
-         * Removes the panel StartPage is currently displaying and replaces it with the JPanel passed in
-         * @param formPanel is the JPanel that will be displayed
-         */
 
 }
