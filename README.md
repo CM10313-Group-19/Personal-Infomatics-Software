@@ -1,5 +1,5 @@
 # Personal-Infomatics-Software
-com.Main repository for the coursework
+Main repository for the coursework
 
 ### Breakdown of repository:
 <details><summary>View breakdown</summary>
