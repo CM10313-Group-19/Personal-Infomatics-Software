@@ -35,6 +35,7 @@ Main repository for the coursework
 <details><summary>View current</summary>
 <p>
   
-  - 1st sprint
+  - 1st sprint <br>
+  Details of who is doing what is in meeting mintues 6 (27-02-2023) and the kanban board for sprint 1
 </p></details>
 
