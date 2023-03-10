@@ -102,8 +102,7 @@ public class Sleep extends JPanel {
             JOptionPane.showMessageDialog(null, "Details Submitted.\nTime Slept: " + calculateSleep(sleepTimeValue, wakeTimeValue));
         });
 
-
         //If back button is clicked, loginPanel will be displayed
-        //backButton.addActionListener(e -> Menu.SwitchPanel(Menu.menu));
+        backButton.addActionListener(e -> mainPage.SwitchPanel(mainPage.menuPanel));
     }
 }

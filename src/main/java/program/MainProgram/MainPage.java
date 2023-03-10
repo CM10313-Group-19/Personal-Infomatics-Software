@@ -5,6 +5,7 @@ public class MainPage extends MainGUIPanel {
     public Exercise exercisePanel;
     public Food foodPanel;
     public Sleep sleepPanel;
+    public Menu menuPanel;
 
     /**
      * Main page of the program
@@ -14,8 +15,8 @@ public class MainPage extends MainGUIPanel {
         exercisePanel = new Exercise(this, mainFrame);
         foodPanel = new Food(this, mainFrame);
         sleepPanel = new Sleep(this, mainFrame);
-        Menu menu = new Menu(this, mainFrame);
-        this.add(menu);
+        menuPanel = new Menu(this, mainFrame);
+        this.add(menuPanel);
         }
 
 }
