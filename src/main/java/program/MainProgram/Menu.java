@@ -1,11 +1,12 @@
 package program.MainProgram;
 
 import program.MainFrame;
-import program.Start.StartPage;
 
 import javax.swing.*;
 import java.awt.*;
+
 public class Menu extends JPanel {
+
     public Menu(MainPage mainPage, MainFrame mainFrame){
 
         this.setBorder(BorderFactory.createCompoundBorder(
