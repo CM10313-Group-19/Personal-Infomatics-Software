@@ -70,7 +70,43 @@ public class StartPage extends MainGUIPanel {
      */
 
     private boolean checkEmailIsValidFormat(String email) {
-        //Implement method to check if the email is in a valid format
+        /**
+        int counter = 0;
+        for(int i = 0; i < email.length(); i++){
+            if (email.charAt(i)=='@'){
+                counter++;
+            }
+        }
+        if(counter != 1){
+            return false;
+        }
+        // Split the string into the local part and the domain.
+        String[] split_email = email.split("@");
+        // Check if local part is of the valid length
+        if (split_email[0].length() < 6  || split_email[0].length() > 64){
+            return false;
+        }
+        // Check if local part contains consecutive periods
+        String prohibitedChars = "\"(),:;<>@[\\]";
+        for (int i = 0; i < split_email[0].length(); i++) {
+            if (split_email[0].contains(Character.toString(prohibitedChars.charAt(i)))){
+                return false;
+            }
+            if ( i >= 1 && split_email[0].charAt(i)=='.' && split_email[0].charAt(i)==(split_email[0].charAt(i-1))) {
+                return false;
+            }
+        }
+        //Check if domain is of valid format
+        int dot_counter = 0;
+        for(int i = 0; i < split_email[1].length(); i++){
+            if (split_email[1].charAt(i)=='.'){
+                dot_counter++;
+            }
+        }
+        if(dot_counter == 0){
+            return false;
+        }
+        return split_email[1].matches("[a-zA-Z0-9\\.]+");*/
         return true;
     }
 
@@ -80,8 +116,28 @@ public class StartPage extends MainGUIPanel {
      * @return a string value indicating if the password is not secure enough
      */
     private String checkPasswordSecureEnough(String password) {
+        /**
         //Implement method to check the password meets certain conditions to make sure it is strong enough
-
+        String special_characters = "~!@#$%^*–_=+[{]}/;:,.?";
+        boolean special_character_present = false;
+        //Check if password is long enough
+        if (password.length() < 8){
+            return "fail";
+        }
+        for (int i = 0; i < special_characters.length(); i++) {
+            if (password.contains(Character.toString(special_characters.charAt(i)))) {
+                special_character_present = true;
+                break;
+            }
+        }
+        //Check if password contains special character
+        if (!special_character_present){
+            return "fail";
+        }
+        //Check if password contains at least one lower and upper case character
+        if ((password.matches("^(?=.*[a-z])(?=.*[A-Z]).*$"))){
+            return "fail";
+        }*/
         return "success";
     }
 
