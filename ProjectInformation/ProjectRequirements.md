@@ -74,7 +74,7 @@ appropriate requirements gathering techniques.
 Dependencies: 2.1, 2.2
 ---------------------------------------------------------------------
 3. **Background Research**
-  - [ ] 3.1 Must read and cite at least three articles in the area of
+  - [x] 3.1 Must read and cite at least three articles in the area of
 Personal Informatics, at least one of which must be drawn
 from the reference section of this coursework document.
 Dependencies: 3.2
@@ -84,7 +84,6 @@ Dependencies: 3.2
   - [ ] 4.1 Must adopt a test-driven development approach,
 including production of test plans.
   - [ ] 4.2 Must provide evidence of testing (e.g. JUnit output)
-  - [ ] 2.2 Functional Requirements
   
     </p>
 </details>
