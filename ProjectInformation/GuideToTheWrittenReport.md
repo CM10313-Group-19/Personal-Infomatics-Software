@@ -19,14 +19,14 @@ titled appendices.
 
 #### Suggested allocation of page budgets:
 
-  - [ ] Cover page:
+  - [x] Cover page:
     - Unit code (CM10313)
     - Title of report
     - Group name and number
     - Date
     - Table of the authors (including names, username, and degree course)
  
-  - [ ] Title and Abstract:
+  - [x] Title and Abstract:
     - Single page, the first line is report title, the second line should be a comma-separated list of authors
     - Followed by an abstract of the document (approx 200 words) summarising:
       - The problem
