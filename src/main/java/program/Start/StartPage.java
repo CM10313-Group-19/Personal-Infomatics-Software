@@ -1,6 +1,8 @@
 package program.Start;
 import program.MainFrame;
 import program.MainGUIPanel;
+import com.toedter.calendar.JDateChooser;
+
 import java.util.Date;
 
 /**
@@ -48,7 +50,7 @@ public class StartPage extends MainGUIPanel {
         if (!checkEmailIsValidFormat(email)) return "Email is not in a valid format";
         else if (checkEmailInUse(email)) return "Email already in use";
         else if (!password.equals(confirmPassword)) return "Passwords do not match";
-        else if (!checkPasswordSecureEnough(password).equals("success")) return checkPasswordSecureEnough(password);
+        else if (!checkPasswordSecureEnough(password)) return "invalid password";
         else if (email.equals("") || password.equals("") || confirmPassword.equals("")) return "empty fields";
             return "success";
         }
@@ -70,7 +72,6 @@ public class StartPage extends MainGUIPanel {
      */
 
     private boolean checkEmailIsValidFormat(String email) {
-        /**
         int counter = 0;
         for(int i = 0; i < email.length(); i++){
             if (email.charAt(i)=='@'){
@@ -106,23 +107,22 @@ public class StartPage extends MainGUIPanel {
         if(dot_counter == 0){
             return false;
         }
-        return split_email[1].matches("[a-zA-Z0-9\\.]+");*/
-        return true;
+        return split_email[1].matches("[a-zA-Z0-9\\.]+");
     }
 
     /**
      * Checks if the password is secure enough
+     *
      * @param password is the password entered by a new user to create an account
      * @return a string value indicating if the password is not secure enough
      */
-    private String checkPasswordSecureEnough(String password) {
-        /**
+    private boolean checkPasswordSecureEnough(String password) {
         //Implement method to check the password meets certain conditions to make sure it is strong enough
         String special_characters = "~!@#$%^*–_=+[{]}/;:,.?";
         boolean special_character_present = false;
         //Check if password is long enough
-        if (password.length() < 8){
-            return "fail";
+        if (password.length() < 8) {
+            return false;
         }
         for (int i = 0; i < special_characters.length(); i++) {
             if (password.contains(Character.toString(special_characters.charAt(i)))) {
@@ -131,14 +131,14 @@ public class StartPage extends MainGUIPanel {
             }
         }
         //Check if password contains special character
-        if (!special_character_present){
-            return "fail";
+        if (!special_character_present) {
+            return false;
         }
         //Check if password contains at least one lower and upper case character
-        if ((password.matches("^(?=.*[a-z])(?=.*[A-Z]).*$"))){
-            return "fail";
-        }*/
-        return "success";
+        if ((password.matches("^(?=.*[a-z])(?=.*[A-Z]).*$"))) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -150,6 +150,7 @@ public class StartPage extends MainGUIPanel {
      * @param weight is the weight entered by a new user to create an account
      * @return a boolean value indicating if the account was created successfully
      */
+
     protected void createAccount(String email, String password, String name, Date dateOfBirth, int weight){
         //store the account information in the database
         //Print account information to the console

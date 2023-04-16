@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 
 //import java.time.*;
 
-public class Sleep extends JPanel {
+public class Sleep extends Subpage {
 
     private final JTextField sleepTimeTextField;
     private final JTextField wakeUpTextField;
@@ -70,31 +70,13 @@ public class Sleep extends JPanel {
 
     //private final JTextField sleepTimeTextField;
     public Sleep(MainPage mainPage, MainFrame mainFrame) {
-
-        this.setBorder(BorderFactory.createLineBorder(new Color(52, 73, 94), 3));
-
-        this.setLayout(new BorderLayout());
-
-        JPanel topPanel = new JPanel();
-        topPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-        ImageIcon backArrowIcon = new ImageIcon("src/main/resources/back-arrow.png");
-        Image backArrowImage = backArrowIcon.getImage();
-        Image newBackArrowImage = backArrowImage.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-        ImageIcon backArrow = new ImageIcon(newBackArrowImage);
-        JButton backButton = new JButton(backArrow);
-        topPanel.add(backButton);
-
-        this.add(topPanel, BorderLayout.NORTH);
-        JPanel mainPanel = new JPanel();
-        mainPanel.setBorder(BorderFactory.createEmptyBorder(50, 100 , 100, 100));
-
+        super();
 
         JLabel sleepLabel = new JLabel("Sleep");
         sleepLabel.setFont(new Font("Arial", Font.BOLD, 25));
         sleepLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 30, 0));
 
         //set layout to gridbaglayout and add components
-        mainPanel.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
         c.insets = new Insets(10, 10, 10, 10);
@@ -156,6 +138,6 @@ public class Sleep extends JPanel {
         });
 
         //If back button is clicked, loginPanel will be displayed
-        backButton.addActionListener(e -> mainPage.SwitchPanel(mainPage.menuPanel));
+        this.backButton.addActionListener(e -> mainPage.SwitchPanel(mainPage.menuPanel));
     }
 }

@@ -18,7 +18,7 @@ public class Food extends JPanel {
         this.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(new Color(52, 73, 94), 3),
                 BorderFactory.createEmptyBorder(100, 100, 100, 100)));
-        
+
         JLabel titleLabel = new JLabel("Personal Infomatics System");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 25));
         titleLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 30, 0));
@@ -62,7 +62,7 @@ public class Food extends JPanel {
         // buttonPanel.setLayout(new GridLayout(1,2));
         JButton FiveADay1 = new JButton("1");
         FiveADay1.setActionCommand("done");
-        FiveADay1.setPreferredSize(new Dimension(40,40));
+        FiveADay1.setPreferredSize(new Dimension(40, 40));
         FiveADay1.setBackground(Color.green);
         buttonPanel.add(FiveADay1);
         JButton signUpButton = new JButton("Sign Up");
@@ -72,28 +72,6 @@ public class Food extends JPanel {
         c.gridy = 6;
         c.gridwidth = 2;
         this.add(buttonPanel, c);
-        
-
-
-        //Once signup button is clicked, next stage of signup will be shown
-        // signUpButton.addActionListener(e -> startPage.SwitchPanel(startPage.signupPanel1));
-
-        //Only allow login if email and password are valid
-        // loginButton.addActionListener(e -> {
-        //     if (startPage.Login(emailTextField.getText(), new String(passwordField.getPassword()))) {
-        //         mainFrame.SwitchPanel(mainFrame.mainPage);
-        //     } else {
-        //         //If email or password is invalid, show error message in a popup
-        //         JOptionPane.showMessageDialog(null, "Invalid email or password");
-        //     }
-        // });
 
     }
-    // public void actionPerformed(ActionEvent e){
-    //     if ("done".equals(e.getActionCommand())){
-    //         e.setEnabled(false);
-    //     }
-    // }
-
-
 }
