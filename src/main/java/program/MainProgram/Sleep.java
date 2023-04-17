@@ -56,12 +56,12 @@ public class Sleep extends Subpage {
         mainPanel.add(wakeUpTextField, c);
 
         c.gridx = 0;
-        c.gridy = 3;
+        c.gridy = 5;
         JLabel dateLabel = new JLabel("Enter date sleep started on: ");
         mainPanel.add(dateLabel, c);
 
         c.gridx = 0;
-        c.gridy = 5;
+        c.gridy = 6;
         datePicker = new JDateChooser();
         mainPanel.add(datePicker, c);
 
@@ -71,7 +71,7 @@ public class Sleep extends Subpage {
         buttonPanel.add(submitButton);
 
         c.gridx = 0;
-        c.gridy = 6;
+        c.gridy = 7;
         c.gridwidth = 2;
         mainPanel.add(buttonPanel, c);
 
@@ -90,7 +90,7 @@ public class Sleep extends Subpage {
             else{
                 System.out.println(sleepTimeValue);
                 System.out.println(wakeTimeValue);
-                JOptionPane.showMessageDialog(null, "Details Submitted.\nTime Slept: " + Validation.calculateTimeDifference(sleepTimeValue, wakeTimeValue));
+                JOptionPane.showMessageDialog(null, "Details Submitted.\nTime Slept: " + Validation.calculateTimeDifference(sleepTimeValue, wakeTimeValue) + " hours" + "\nDate: " + datePicker.getDate());
             }
 
         });
