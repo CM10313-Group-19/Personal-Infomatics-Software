@@ -14,8 +14,10 @@ public class Exercise extends Subpage {
     //create a textfield that only accepts numbers for distance
     private JTextField distanceTextField;
     private String type;
+    private String exerciseTime;
+    private String distance; //in km
     private String duration;
-    private String distance;
+    private String elevationGain; //in metres
 
     //Dropdown menu to pick between activity types
     private final JComboBox<String> activityType = new JComboBox<>(new String[]{"Running", "Cycling", "Swimming"});
@@ -83,6 +85,7 @@ public class Exercise extends Subpage {
         c.gridy = 10;
         JTextField elevationTextField = new JTextField();
         elevationTextField.setPreferredSize(new Dimension(200, 20));
+        elevationTextField.setText("Elevation gain in m");
         mainPanel.add(elevationTextField, c);
 
         JPanel buttonPanel = new JPanel();
@@ -130,6 +133,25 @@ public class Exercise extends Subpage {
             }
         });
 
+        elevationTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                elevationTextField.setText("");
+            }
+        });
+
+        //if swimming is selected, elevation gain is not required
+        activityType.addActionListener(e -> {
+            if (activityType.getSelectedItem().equals("Swimming")){
+                elevationTextField.setText("N/A");
+                elevationTextField.setEditable(false);
+            }
+            else{
+                elevationTextField.setText("Elevation gain in m");
+                elevationTextField.setEditable(true);
+            }
+        });
+
 
         submitButton.addActionListener(e -> {
 
@@ -139,10 +161,21 @@ public class Exercise extends Subpage {
             else if (!(Validation.validateTimeInput(startTimeTextField.getText())) || !(Validation.validateTimeInput(endTimeTextField.getText()))){ // wrong time format
                 JOptionPane.showMessageDialog(null, "Invalid time format. Please put time in the 24HR time format.\nFormat: HH:MM");
             }
+            else if(!(Validation.validateDistanceInput(distanceTextField.getText()))){
+                JOptionPane.showMessageDialog(null, "Invalid distance format. Please put distance in the format: 0.0");
+            }
+            else if(!(Validation.validateDistanceInput(elevationTextField.getText()))){
+                JOptionPane.showMessageDialog(null, "Invalid elevation gain format. Please put elevation gain in the format: 0.0");
+            }
+            else if (Validation.calculateTimeDifference(startTimeTextField.getText(), endTimeTextField.getText()).equals("00:00")){ // start time is after end time
+                JOptionPane.showMessageDialog(null, "Start time cannot be after end time");
+            }
             else{
-                duration = Validation.calculateTimeDifference(startTimeTextField.getText(), endTimeTextField.getText());
+                exerciseTime = Validation.calculateTimeDifference(startTimeTextField.getText(), endTimeTextField.getText());
+                duration =  Validation.calculateMinutes(exerciseTime);
                 distance = distanceTextField.getText();
-                JOptionPane.showMessageDialog(null, "Details Submitted.\nExercise duration: " + Validation.calculateTimeDifference(startTimeTextField.getText(), endTimeTextField.getText()));
+                elevationGain = elevationTextField.getText();
+                JOptionPane.showMessageDialog(null, "Details Submitted.\nExercise duration: " + Validation.calculateTimeDifference(startTimeTextField.getText(), endTimeTextField.getText()) + "\nDistance: " + distanceTextField.getText() + "km"+ "\nElevation gain: " + elevationTextField.getText() + "m");
             }
 
         });

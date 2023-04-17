@@ -16,6 +16,10 @@ public class Validation {
             Date timeDate2 = format24HRS.parse(timeString2);
             System.out.println(timeDate1);
             System.out.println(timeDate2);
+            //if timeDate2 is less than timeDate1, add 24 hours to timeDate2
+            if (timeDate2.getTime() < timeDate1.getTime()){
+                timeDate2.setTime(timeDate2.getTime() + 86400000);
+            }
 
             long calculateMS = Math.abs(timeDate2.getTime() - timeDate1.getTime()); // time in milliseconds for conversions
             System.out.println(timeDate2.getTime());
@@ -26,6 +30,12 @@ public class Validation {
 
             long calculateMins = (calculateMS / (60 * 1000)) % 60; // minutes
             System.out.println(calculateMins);
+
+            //if mins is less than 10, add a 0 to the front
+            String calculateMinsString = String.valueOf(calculateMins);
+            if (calculateMins < 10){
+                calculateMinsString = "0" + calculateMinsString;
+            }
 
             return calculateHours + ":" + calculateMins;
         }
@@ -40,21 +50,27 @@ public class Validation {
         return timeMatcher.matches();
     }
 
-    /*Not sure if still needed
-    public static long calculateMinutes(String timeString1, String timeString2){
+    //Checks for a valid distance which may contain 1 decimal point
+    public static boolean validateDistanceInput(String userDistanceInput){
+        Pattern distanceFormat = Pattern.compile("^[0-9]+(\\.[0-9]{1,2})?$");
+        Matcher distanceMatcher = distanceFormat.matcher(userDistanceInput);
+        return distanceMatcher.matches();
+
+    }
+
+    //turns a 24hr time into the number of minutes since midnight
+    public static String calculateMinutes(String timeString){
         SimpleDateFormat format24HRS = new SimpleDateFormat("HH:mm");
         try {
-            Date timeDate1 = format24HRS.parse(timeString1);
-            Date timeDate2 = format24HRS.parse(timeString2);
+            Date timeDate = format24HRS.parse(timeString);
 
-            long calculateMS = Math.abs(timeDate2.getTime() - timeDate1.getTime()); // time in milliseconds for conversions
+            long calculateMS = timeDate.getTime(); // time in milliseconds for conversions
             long calculateMins = (calculateMS / (60 * 1000)) % 60; // minutes
-
-            return calculateMins;
+            System.out.println(calculateMins);
+            return String.valueOf(calculateMins);
         }
         catch (ParseException e) {
-            return 0;
+            return "0";
         }
     }
-     */
 }
