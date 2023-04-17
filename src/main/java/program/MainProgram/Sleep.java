@@ -1,5 +1,6 @@
 package program.MainProgram;
 
+import com.toedter.calendar.JDateChooser;
 import program.MainFrame;
 
 import javax.swing.*;
@@ -12,6 +13,8 @@ public class Sleep extends Subpage {
 
     private final JTextField sleepTimeTextField;
     private final JTextField wakeUpTextField;
+
+    private JDateChooser datePicker;
 
     //private final JTextField sleepTimeTextField;
     public Sleep(MainPage mainPage, MainFrame mainFrame) {
@@ -52,13 +55,23 @@ public class Sleep extends Subpage {
         wakeUpTextField.setPreferredSize(new Dimension(200, 20));
         mainPanel.add(wakeUpTextField, c);
 
+        c.gridx = 0;
+        c.gridy = 3;
+        JLabel dateLabel = new JLabel("Enter date sleep started on: ");
+        mainPanel.add(dateLabel, c);
+
+        c.gridx = 0;
+        c.gridy = 5;
+        datePicker = new JDateChooser();
+        mainPanel.add(datePicker, c);
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(1,2));
         JButton submitButton = new JButton("Submit");
         buttonPanel.add(submitButton);
 
         c.gridx = 0;
-        c.gridy = 5;
+        c.gridy = 6;
         c.gridwidth = 2;
         mainPanel.add(buttonPanel, c);
 
