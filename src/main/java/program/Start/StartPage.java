@@ -71,7 +71,7 @@ public class StartPage extends MainGUIPanel {
      * @return a boolean value indicating if the email is in a valid format
      */
 
-    private boolean checkEmailIsValidFormat(String email) {
+    public static boolean checkEmailIsValidFormat(String email) {
         int counter = 0;
         for(int i = 0; i < email.length(); i++){
             if (email.charAt(i)=='@'){
@@ -119,7 +119,7 @@ public class StartPage extends MainGUIPanel {
      * @param password is the password entered by a new user to create an account
      * @return a string value indicating if the password is not secure enough
      */
-    private boolean checkPasswordSecureEnough(String password) {
+    public static boolean checkPasswordSecureEnough(String password) {
         //Implement method to check the password meets certain conditions to make sure it is strong enough
         String special_characters = "~!@#$%^*–_=+[{]}/;:,.?";
         boolean special_character_present = false;
@@ -139,10 +139,7 @@ public class StartPage extends MainGUIPanel {
             return false;
         }
         //Check if password contains at least one lower and upper case character
-        if ((password.matches("^(?=.*[a-z])(?=.*[A-Z]).*$"))) {
-            return true;
-        }
-        return false;
+        return password.matches("^(?=.*[a-z])(?=.*[A-Z]).*$");
     }
 
     /**
