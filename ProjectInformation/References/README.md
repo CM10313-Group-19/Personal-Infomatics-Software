@@ -49,5 +49,10 @@ informatics system for users without experience in self-tracking: a case study.
 Behaviour & Information Technology 37, 4 (2018), 335–366.
   7. Tollmar, K., Bentley, F., Viedma, C., and Libertyville, I. Mobile health mashups. Proc.
 Pervasive Health 12 (2012). 
-  8. ...
+  8. Klasnja, P., Consolvo, S., McDonald, D. W., Landay, J. A., & Pratt, W. (2009). Using mobile & personal sensing technologies to support health behavior change in everyday life: lessons learned. AMIA Annual Symposium Proceedings, 338-342. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2815400/
+  9. Kelley, M. C. (2014). The Impact of Fitness Technology on Health Outcomes. CMC Senior Theses. Paper 917. http://scholarship.claremont.edu/cmc_theses/917
+  10. Brabazon, T. (2015), ‘Digital fitness:Self-monitored fitness and the commodification of movement’,Communication, Politics & Culture, vol. 48, issue 2, pp 1-23
+  11. Niess, J. and Diefenbach, S. (2018) Practical Challenges for the Design of Personal Informatics Systems. i-com, Vol. 17 (Issue 3), pp. 257-260. https://doi.org/10.1515/icom-2018-0036
+  12. Carlhenricsdotter, E. (2022). The future design of personal informatics: Potentials of designing personal informatics with a focus on the phenomenological matrix using theories of the self and storytelling. (Master's thesis, Uppsala University). https://uu.diva-portal.org/smash/get/diva2:1665322/FULLTEXT01.pdf
+
 
