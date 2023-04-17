@@ -1,11 +1,14 @@
 package program.MainProgram;
 import program.MainFrame;
 import program.MainGUIPanel;
+import program.Start.StartPage;
+
 public class MainPage extends MainGUIPanel {
     public Exercise exercisePanel;
     public Food foodPanel;
     public Sleep sleepPanel;
     public Menu menuPanel;
+    public StartPage startPage;
 
     /**
      * Main page of the program
@@ -16,6 +19,8 @@ public class MainPage extends MainGUIPanel {
         foodPanel = new Food(this, mainFrame);
         sleepPanel = new Sleep(this, mainFrame);
         menuPanel = new Menu(this, mainFrame);
+        startPage = mainFrame.startPage;
+
         this.add(menuPanel);
         }
 

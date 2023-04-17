@@ -1,6 +1,7 @@
 package program.MainProgram;
 
 import program.MainFrame;
+import program.Start.StartPage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,6 +41,18 @@ public class Menu extends JPanel {
         sleepButton.addActionListener(e -> mainPage.SwitchPanel(mainPage.sleepPanel));
         mainPanel.add(sleepButton, c);
         this.add(mainPanel, BorderLayout.CENTER);
+
+        //insert an empty row
+        c.gridy = 1;
+        mainPanel.add(new JLabel(), c);
+
+        c.gridx = 1;
+        c.gridy = 2;
+        JButton logOutButton = new JButton("Log out");
+        logOutButton.addActionListener(e -> mainFrame.SwitchPanel(mainFrame.startPage));
+        mainPanel.add(logOutButton, c);
+        this.add(mainPanel, BorderLayout.CENTER);
+
     }
 }
 

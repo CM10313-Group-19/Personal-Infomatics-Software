@@ -4,11 +4,6 @@ import program.MainFrame;
 
 import javax.swing.*;
 import java.awt.*;
-import java.text.ParseException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 
 
 //import java.time.*;
@@ -17,56 +12,6 @@ public class Sleep extends Subpage {
 
     private final JTextField sleepTimeTextField;
     private final JTextField wakeUpTextField;
-
-    private static String calculateSleep(String timeString1, String timeString2){
-        /** A bit broken atm cause cant work out time correctly **/
-        SimpleDateFormat format24HRS = new SimpleDateFormat("HH:mm");
-        try {
-            Date timeDate1 = format24HRS.parse(timeString1);
-            Date timeDate2 = format24HRS.parse(timeString2);
-            System.out.println(timeDate1);
-            System.out.println(timeDate2);
-
-            long calculateMS = Math.abs(timeDate2.getTime() - timeDate1.getTime()); // time in milliseconds for conversions
-            System.out.println(timeDate2.getTime());
-            System.out.println(calculateMS);
-
-            long calculateHours = (calculateMS / (60 * 60 * 1000)) % 24; // hours
-            System.out.println(calculateHours);
-
-            long calculateMins = (calculateMS / (60 * 1000)) % 60; // minutes
-            System.out.println(calculateMins);
-
-            return calculateHours + ":" + calculateMins;
-        }
-        catch (ParseException e) {
-            return "00:00";
-        }
-    }
-
-    private static long calculateMinutes(String timeString1, String timeString2){
-        SimpleDateFormat format24HRS = new SimpleDateFormat("HH:mm");
-        try {
-            Date timeDate1 = format24HRS.parse(timeString1);
-            Date timeDate2 = format24HRS.parse(timeString2);
-
-            long calculateMS = Math.abs(timeDate2.getTime() - timeDate1.getTime()); // time in milliseconds for conversions
-            long calculateMins = (calculateMS / (60 * 1000)) % 60; // minutes
-
-            return calculateMins;
-        }
-        catch (ParseException e) {
-            return 0;
-        }
-    }
-
-
-    private boolean validateDateInput(String userTimeInput){
-        Pattern timeFormat = Pattern.compile("([01]?[0-9]|2[0-3]):[0-5][0-9]"); // regex pattern for 24hr time format
-        Matcher timeMatcher = timeFormat.matcher(userTimeInput);
-        return timeMatcher.matches();
-    }
-
 
     //private final JTextField sleepTimeTextField;
     public Sleep(MainPage mainPage, MainFrame mainFrame) {
@@ -87,7 +32,7 @@ public class Sleep extends Subpage {
 
         c.gridx = 0;
         c.gridy = 1;
-        JLabel sleepTimeLabel = new JLabel("Enter Sleep Time: ");
+        JLabel sleepTimeLabel = new JLabel("Enter sleep time: ");
         mainPanel.add(sleepTimeLabel, c);
 
         c.gridx = 0;
@@ -98,7 +43,7 @@ public class Sleep extends Subpage {
 
         c.gridx = 0;
         c.gridy = 3;
-        JLabel wakeUpLabel = new JLabel("Enter Wake Up Time: ");
+        JLabel wakeUpLabel = new JLabel("Enter wake up time: ");
         mainPanel.add(wakeUpLabel, c);
 
         c.gridx = 0;
@@ -126,18 +71,18 @@ public class Sleep extends Subpage {
             if (sleepTimeValue.equals("") || wakeTimeValue.equals("")){ // empty fields
                 JOptionPane.showMessageDialog(null, "Please fill in all fields");
             }
-            else if (!(validateDateInput(sleepTimeValue)) || !(validateDateInput(wakeTimeValue))){ // wrong time format
+            else if (!(Validation.validateTimeInput(sleepTimeValue)) || !(Validation.validateTimeInput(wakeTimeValue))){ // wrong time format
                 JOptionPane.showMessageDialog(null, "Invalid time format. Please put time in the 24HR time format.\nFormat: HH:MM");
             }
             else{
                 System.out.println(sleepTimeValue);
                 System.out.println(wakeTimeValue);
-                JOptionPane.showMessageDialog(null, "Details Submitted.\nTime Slept: " + calculateSleep(sleepTimeValue, wakeTimeValue));
+                JOptionPane.showMessageDialog(null, "Details Submitted.\nTime Slept: " + Validation.calculateTimeDifference(sleepTimeValue, wakeTimeValue));
             }
 
         });
 
-        //If back button is clicked, loginPanel will be displayed
+        //If back button is clicked, menu will be displayed
         this.backButton.addActionListener(e -> mainPage.SwitchPanel(mainPage.menuPanel));
     }
 }

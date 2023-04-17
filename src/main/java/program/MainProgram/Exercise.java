@@ -4,30 +4,29 @@ import program.MainFrame;
 
 import javax.swing.*;
 import java.awt.*;
-import java.text.ParseException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.Date;
-import java.text.SimpleDateFormat;
-
-
-//import java.time.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Exercise extends Subpage {
 
-    private final JTextField sleepTimeTextField;
-    private final JTextField wakeUpTextField;
+    private JTextField startTimeTextField;
+    private JTextField endTimeTextField;
+    //create a textfield that only accepts numbers for distance
+    private JTextField distanceTextField;
+    private String type;
+    private String duration;
+    private String distance;
 
-    //private final JTextField sleepTimeTextField;
-    public Exercise(MainPage mainPage, MainFrame mainFrame) {
-        super();
+    //Dropdown menu to pick between activity types
+    private final JComboBox<String> activityType = new JComboBox<>(new String[]{"Running", "Cycling", "Swimming"});
+
+    public Exercise(MainPage mainPage, MainFrame mainFrame) {super();
 
         JLabel exerciseLabel = new JLabel("Exercise");
         exerciseLabel.setFont(new Font("Arial", Font.BOLD, 25));
         exerciseLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 30, 0));
 
         //set layout to gridbaglayout and add components
-        mainPanel.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
         c.insets = new Insets(10, 10, 10, 10);
@@ -38,25 +37,53 @@ public class Exercise extends Subpage {
 
         c.gridx = 0;
         c.gridy = 1;
-        JLabel sleepTimeLabel = new JLabel("Enter Sleep Time: ");
-        mainPanel.add(sleepTimeLabel, c);
+        mainPanel.add(new JLabel("Select Activity type: "), c);
 
         c.gridx = 0;
         c.gridy = 2;
-        sleepTimeTextField = new JTextField();
-        sleepTimeTextField.setPreferredSize(new Dimension(200, 20));
-        mainPanel.add(sleepTimeTextField, c);
+        activityType.setPreferredSize(new Dimension(200, 20));
+        mainPanel.add(activityType, c);
 
         c.gridx = 0;
         c.gridy = 3;
-        JLabel wakeUpLabel = new JLabel("Enter Wake Up Time: ");
-        mainPanel.add(wakeUpLabel, c);
+        mainPanel.add(new JLabel("Enter exercise start time: "), c);
 
         c.gridx = 0;
         c.gridy = 4;
-        wakeUpTextField = new JTextField();
-        wakeUpTextField.setPreferredSize(new Dimension(200, 20));
-        mainPanel.add(wakeUpTextField, c);
+        startTimeTextField = new JTextField();
+        startTimeTextField.setPreferredSize(new Dimension(200, 20));
+        startTimeTextField.setText("HH:MM");
+        mainPanel.add(startTimeTextField, c);
+
+        c.gridx = 0;
+        c.gridy = 5;
+        mainPanel.add(new JLabel("Enter exercise end time: "), c);
+
+        c.gridx = 0;
+        c.gridy = 6;
+        endTimeTextField = new JTextField();
+        endTimeTextField.setPreferredSize(new Dimension(200, 20));
+        endTimeTextField.setText("HH:MM");
+        mainPanel.add(endTimeTextField, c);
+
+        c.gridx = 0;
+        c.gridy = 7;
+        mainPanel.add(new JLabel("Enter distance: "), c);
+        c.gridx = 0;
+        c.gridy = 8;
+        distanceTextField = new JTextField();
+        distanceTextField.setPreferredSize(new Dimension(200, 20));
+        distanceTextField.setText("distance in km");
+        mainPanel.add(distanceTextField, c);
+
+        c.gridx = 0;
+        c.gridy = 9;
+        mainPanel.add(new JLabel("Enter elevation gain: "), c);
+        c.gridx = 0;
+        c.gridy = 10;
+        JTextField elevationTextField = new JTextField();
+        elevationTextField.setPreferredSize(new Dimension(200, 20));
+        mainPanel.add(elevationTextField, c);
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(1,2));
@@ -64,13 +91,63 @@ public class Exercise extends Subpage {
         buttonPanel.add(submitButton);
 
         c.gridx = 0;
-        c.gridy = 5;
+        c.gridy =11;
         c.gridwidth = 2;
         mainPanel.add(buttonPanel, c);
 
         this.add(mainPanel, BorderLayout.CENTER);
 
-        //If back button is clicked, loginPanel will be displayed
-        backButton.addActionListener(e -> mainPage.SwitchPanel(mainPage.menuPanel));
+        //only let user enter numbers in the distance textfield, but allow 1 decimal point
+        distanceTextField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE) || (c == KeyEvent.VK_PERIOD))) {
+                    e.consume();
+                }
+            }
+        });
+
+        //if text fileds are clicked, clear the text
+        startTimeTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                startTimeTextField.setText("");
+            }
+        });
+
+        endTimeTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                endTimeTextField.setText("");
+            }
+        });
+
+        distanceTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                distanceTextField.setText("");
+            }
+        });
+
+
+        submitButton.addActionListener(e -> {
+
+            if (startTimeTextField.getText().equals("") || endTimeTextField.getText().equals("")){ // empty fields
+                JOptionPane.showMessageDialog(null, "Please fill in all fields");
+            }
+            else if (!(Validation.validateTimeInput(startTimeTextField.getText())) || !(Validation.validateTimeInput(endTimeTextField.getText()))){ // wrong time format
+                JOptionPane.showMessageDialog(null, "Invalid time format. Please put time in the 24HR time format.\nFormat: HH:MM");
+            }
+            else{
+                duration = Validation.calculateTimeDifference(startTimeTextField.getText(), endTimeTextField.getText());
+                distance = distanceTextField.getText();
+                JOptionPane.showMessageDialog(null, "Details Submitted.\nExercise duration: " + Validation.calculateTimeDifference(startTimeTextField.getText(), endTimeTextField.getText()));
+            }
+
+        });
+
+        //If back button is clicked, menu will be displayed
+        this.backButton.addActionListener(e -> mainPage.SwitchPanel(mainPage.menuPanel));
     }
 }

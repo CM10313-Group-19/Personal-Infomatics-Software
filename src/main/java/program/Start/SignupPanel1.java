@@ -90,13 +90,14 @@ public class SignupPanel1 extends JPanel {
         //If signup button is clicked, signup panel 2 will be displayed if the passwords match and the email is valid and not already in use and all fields are filled. do checks in a method in startpage
         signUpButton.addActionListener(e -> {
             String attemptCreateAccount = (startPage.validateEmailAndPassword(emailTextField.getText(), passwordField.getText(), confirmPasswordField.getText()));
+            System.out.println(attemptCreateAccount);
             switch (attemptCreateAccount) {
                 case "success" -> startPage.SwitchPanel(startPage.signupPanel2);
-                case "Passwords do not match" -> JOptionPane.showMessageDialog(null, "Passwords do not match");
-                case "Email already in use" -> JOptionPane.showMessageDialog(null, "Email already in use");
+                case "passwords do not match" -> JOptionPane.showMessageDialog(null, "Passwords do not match");
+                case "email in use" -> JOptionPane.showMessageDialog(null, "Email already in use");
                 case "invalid email" -> JOptionPane.showMessageDialog(null, "Invalid email");
                 case "empty fields" -> JOptionPane.showMessageDialog(null, "Please fill in all fields");
-                case "invalid password" -> JOptionPane.showMessageDialog(null, "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number");
+                case "invalid password" -> JOptionPane.showMessageDialog(null, "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and a special character");
             }
         });
 

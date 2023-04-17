@@ -47,9 +47,9 @@ public class StartPage extends MainGUIPanel {
      * @return a string value indicating the result of the attempt to create an account. If the account was created successfully, the string "valid" is returned. If the email is already in use, the string "Email already in use" is returned. If the passwords do not match, the string "Passwords do not match" is returned. If the password is not secure enough, the string "Password not secure enough" is returned.
      */
     protected String validateEmailAndPassword(String email, String password, String confirmPassword) {
-        if (!checkEmailIsValidFormat(email)) return "Email is not in a valid format";
-        else if (checkEmailInUse(email)) return "Email already in use";
-        else if (!password.equals(confirmPassword)) return "Passwords do not match";
+        if (!checkEmailIsValidFormat(email)) return "invalid email";
+        else if (checkEmailInUse(email)) return "email in use";
+        else if (!password.equals(confirmPassword)) return "passwords do not match";
         else if (!checkPasswordSecureEnough(password)) return "invalid password";
         else if (email.equals("") || password.equals("") || confirmPassword.equals("")) return "empty fields";
             return "success";
@@ -84,7 +84,7 @@ public class StartPage extends MainGUIPanel {
         // Split the string into the local part and the domain.
         String[] split_email = email.split("@");
         // Check if local part is of the valid length
-        if (split_email[0].length() < 6  || split_email[0].length() > 64){
+        if (split_email[0].length() <= 1  || split_email[0].length() >= 64){
             return false;
         }
         // Check if local part contains consecutive periods
@@ -107,6 +107,9 @@ public class StartPage extends MainGUIPanel {
         if(dot_counter == 0){
             return false;
         }
+        if (split_email[1].length() <= 1  || split_email[1].length() >= 255){
+            return false;
+        }
         return split_email[1].matches("[a-zA-Z0-9\\.]+");
     }
 
@@ -122,6 +125,7 @@ public class StartPage extends MainGUIPanel {
         boolean special_character_present = false;
         //Check if password is long enough
         if (password.length() < 8) {
+            System.out.println("Password too short");
             return false;
         }
         for (int i = 0; i < special_characters.length(); i++) {
