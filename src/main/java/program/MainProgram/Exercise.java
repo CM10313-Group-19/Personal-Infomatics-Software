@@ -15,9 +15,9 @@ public class Exercise extends Subpage {
     private JTextField distanceTextField;
     private String type;
     private String exerciseTime;
-    private String distance; //in km
-    private String duration;
-    private String elevationGain; //in metres
+    private String distance; //in km, to 2 dp
+    private int duration; //duration in minutes
+    private String elevationGain; //in metres, to 2 dp
 
     //Dropdown menu to pick between activity types
     private final JComboBox<String> activityType = new JComboBox<>(new String[]{"Running", "Cycling", "Swimming"});
@@ -100,7 +100,7 @@ public class Exercise extends Subpage {
 
         this.add(mainPanel, BorderLayout.CENTER);
 
-        //only let user enter numbers in the distance textfield, but allow 1 decimal point
+        //only let user enter numbers in the distance textfield, and only up to 2dp
         distanceTextField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -108,8 +108,15 @@ public class Exercise extends Subpage {
                 if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE) || (c == KeyEvent.VK_PERIOD))) {
                     e.consume();
                 }
+                if (distanceTextField.getText().contains(".") && c == KeyEvent.VK_PERIOD) {
+                    e.consume();
+                }
+                if (distanceTextField.getText().length() > 4) {
+                    e.consume();
+                }
             }
         });
+
 
         //if text fileds are clicked, clear the text
         startTimeTextField.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -130,6 +137,23 @@ public class Exercise extends Subpage {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 distanceTextField.setText("");
+            }
+        });
+
+        //make sure elevation gain is only numbers and only up to 2dp
+        elevationTextField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE) || (c == KeyEvent.VK_PERIOD))) {
+                    e.consume();
+                }
+                if (elevationTextField.getText().contains(".") && c == KeyEvent.VK_PERIOD) {
+                    e.consume();
+                }
+                if (elevationTextField.getText().length() > 4) {
+                    e.consume();
+                }
             }
         });
 
