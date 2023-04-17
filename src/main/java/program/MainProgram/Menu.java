@@ -42,12 +42,21 @@ public class Menu extends JPanel {
         mainPanel.add(sleepButton, c);
         this.add(mainPanel, BorderLayout.CENTER);
 
-        //insert an empty row
+        c.gridx = 1;
         c.gridy = 1;
+        JButton weightButton = new JButton("Weight tracker");
+        weightButton.addActionListener(e -> mainPage.SwitchPanel(mainPage.weightPanel));
+        mainPanel.add(weightButton, c);
+
+        //insert an empty row
+        c.gridy = 2;
+        mainPanel.add(new JLabel(), c);
+        //insert an empty row
+        c.gridy = 3;
         mainPanel.add(new JLabel(), c);
 
         c.gridx = 1;
-        c.gridy = 2;
+        c.gridy = 4;
         JButton logOutButton = new JButton("Log out");
         logOutButton.addActionListener(e -> mainFrame.SwitchPanel(mainFrame.startPage));
         mainPanel.add(logOutButton, c);

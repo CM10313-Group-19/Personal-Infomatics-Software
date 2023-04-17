@@ -195,10 +195,13 @@ public class Exercise extends Subpage {
                 JOptionPane.showMessageDialog(null, "Start time cannot be after end time");
             }
             else{
+
+                //CONNECT TO DATABASE HERE
                 exerciseTime = Validation.calculateTimeDifference(startTimeTextField.getText(), endTimeTextField.getText());
                 duration =  Validation.calculateMinutes(exerciseTime);
                 distance = distanceTextField.getText();
                 elevationGain = elevationTextField.getText();
+                type = activityType.getSelectedItem().toString();
                 JOptionPane.showMessageDialog(null, "Details Submitted.\nExercise duration: " + Validation.calculateTimeDifference(startTimeTextField.getText(), endTimeTextField.getText()) + "\nDistance: " + distanceTextField.getText() + "km"+ "\nElevation gain: " + elevationTextField.getText() + "m");
             }
 

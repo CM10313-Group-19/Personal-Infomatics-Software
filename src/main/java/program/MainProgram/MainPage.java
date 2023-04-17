@@ -9,6 +9,7 @@ public class MainPage extends MainGUIPanel {
     public Sleep sleepPanel;
     public Menu menuPanel;
     public StartPage startPage;
+    public Weight weightPanel;
 
     /**
      * Main page of the program
@@ -19,9 +20,9 @@ public class MainPage extends MainGUIPanel {
         foodPanel = new Food(this, mainFrame);
         sleepPanel = new Sleep(this, mainFrame);
         menuPanel = new Menu(this, mainFrame);
+        weightPanel = new Weight(this, mainFrame);
         startPage = mainFrame.startPage;
 
         this.add(menuPanel);
         }
-
 }
