@@ -18,9 +18,13 @@
   3. ~On Being Told How We Feel~
   4. ~A stage-based model of personal informatics systems~
   5. ~Personal informatics in practice~
-  6. Designing a personal informatics system
+  6. ~Designing a personal informatics system~
   7. ~Mobile Health Mashups~
-  8. ...
+  8. ~Using Mobile & Personal Sensing Technologies to Support Health Behavior Change in Everyday Life: Lessons Learned~
+  9. ~The Impact of Fitness Technology on Health Outcomes~
+  10. ~Digital fitness: Self-monitored fitness and the commodification of movement~
+  11. ~Practical Challenges for the Design of Personal Informatics Systems~
+  12. ~The future design of personal informatics~
 
 ### Harvard Reference: ###
   1. Fritz, T., Huang, E. M., Murphy, G. C., and Zimmermann, T. Persuasive technology in
