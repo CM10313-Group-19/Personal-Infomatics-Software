@@ -48,9 +48,11 @@ public class Menu extends JPanel {
         weightButton.addActionListener(e -> mainPage.SwitchPanel(mainPage.weightPanel));
         mainPanel.add(weightButton, c);
 
-        //insert an empty row
         c.gridy = 2;
-        mainPanel.add(new JLabel(), c);
+        JButton goalsButton = new JButton("Goals");
+        goalsButton.addActionListener(e -> mainPage.SwitchPanel(mainPage.goalsPanel));
+        mainPanel.add(goalsButton, c);
+
         //insert an empty row
         c.gridy = 3;
         mainPanel.add(new JLabel(), c);

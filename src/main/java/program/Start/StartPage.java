@@ -89,7 +89,9 @@ public class StartPage extends MainGUIPanel {
         }
         // Check if local part contains consecutive periods
         String prohibitedChars = "\"(),:;<>@[\\]";
-        for (int i = 0; i < split_email[0].length(); i++) {
+        for (int i = 0; i < split_email[0].length()-1; i++) {
+            System.out.println(split_email[0].charAt(i));
+            System.out.println(split_email[0].length());
             if (split_email[0].contains(Character.toString(prohibitedChars.charAt(i)))){
                 return false;
             }
