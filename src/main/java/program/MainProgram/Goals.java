@@ -93,14 +93,10 @@ public class Goals extends Subpage{
                 datePicker = new JDateChooser();
                 JOptionPane.showMessageDialog(null, datePicker, "Select a date", JOptionPane.PLAIN_MESSAGE);
                 dueDate = datePicker.getDate();
-                //check if date in past
-                if(dueDate!=null && dueDate.before(Calendar.getInstance().getTime())){
-                    dueDate = Calendar.getInstance().getTime();
-                }
                 isOverdue = false;
                 goalPanel.setBackground(new Color(255, 255, 255));
                 goalDescriptionBox.setBackground(new Color(218, 218, 218));
-                dateButton.setText(dueDate.getDate()+"/"+(dueDate.getMonth()+1)+"/"+(dueDate.getYear()+1900));
+                updateDueDate(dateButton, dueDate);
             });
             goalPanel.add(goalDescriptionBox,c);
             c.gridx = 4;
@@ -123,6 +119,18 @@ public class Goals extends Subpage{
                 mainPanel.revalidate();
             });
         }
+
+        private void updateDueDate(JButton dateButton, Date dueDate){
+            if(dueDate!=null){
+                if(dueDate.before(Calendar.getInstance().getTime())){
+                    makeOverdue();
+                }
+                else{
+                    dateButton.setText(dueDate.getDate()+"/"+(dueDate.getMonth()+1)+"/"+(dueDate.getYear()+1900));
+                }
+            }
+        }
+
         public Date getDueDate(){
             return dueDate;
         }
@@ -168,13 +176,14 @@ public class Goals extends Subpage{
         c.gridx = 0;
         c.gridy = 0;
         addGoalButton = new JButton("Add Goal");
+        addGoalButton.setPreferredSize(new Dimension(300, 30));
         mainPanel.add(addGoalButton, c);
         c.gridy = goalCount+1;
 
         //when add goal button is clicked, a new goal is added
         addGoalButton.addActionListener(e -> {
             //check there is space for another goal
-            if(goalCount >= 6){
+            if(goalCount >= 8){
                 return;
             }
 
