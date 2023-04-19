@@ -16,7 +16,7 @@ public class MainFrame extends JFrame {
         //Setting up the main frame
         this.setTitle(Main.NAME);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH); //Maximizes the frame on startup
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Closes the program when the frame is closed
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setMinimumSize(new Dimension(400, 620));
         ImageIcon frameIcon = new ImageIcon("src/main/resources/logo.png");
         this.setIconImage(frameIcon.getImage());
@@ -24,6 +24,7 @@ public class MainFrame extends JFrame {
         startPage = new StartPage(this);
         this.add(startPage);
         this.setVisible(true);
+
     }
 
     /**
