@@ -123,11 +123,10 @@ public class Goals extends Subpage{
         private void updateDueDate(JButton dateButton, Date dueDate){
             if(dueDate!=null){
                 if(dueDate.before(Calendar.getInstance().getTime())){
-                    makeOverdue();
+                    dueDate=Calendar.getInstance().getTime();
                 }
-                else{
-                    dateButton.setText(dueDate.getDate()+"/"+(dueDate.getMonth()+1)+"/"+(dueDate.getYear()+1900));
-                }
+                dateButton.setText(dueDate.getDate()+"/"+(dueDate.getMonth()+1)+"/"+(dueDate.getYear()+1900));
+
             }
         }
 
