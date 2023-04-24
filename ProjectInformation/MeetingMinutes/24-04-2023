@@ -1,4 +1,4 @@
-# Minutes for meeting 8 (24/03/2023)
+# Minutes for meeting 13 (24/04/2023)
 Time: Monday 14:15 <br>
 Location: East Building Balcony
 
@@ -13,7 +13,7 @@ Location: East Building Balcony
 
 </p></details>
 
-# Sprint standup sprint 2
+# Sprint standup sprint 3
 
 - Thomas has finsihed goals section, adding a new page to the menu that gives the ability to add new goals. Each goal has a due date and a description of the goal.
 Goals can be marked as complete or deleted. Marking a goal as complete turns it green. If the due date of a goal passes and the goal has not been marked as complete, the goal turns red.
