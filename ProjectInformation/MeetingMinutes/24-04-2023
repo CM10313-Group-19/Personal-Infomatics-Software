@@ -16,7 +16,11 @@ Location: East Building Balcony
 # Sprint standup sprint 2
 
 - Thomas has finsihed goals section, adding a new page to the menu that gives the ability to add new goals. Each goal has a due date and a description of the goal.
-Goals can be marked as complete or deleted. Marking a goal as complete turns it green. 
+Goals can be marked as complete or deleted. Marking a goal as complete turns it green. If the due date of a goal passes and the goal has not been marked as complete, the goal turns red.
+- 
+- The programming deadline for the project has been set as this Friday, from which no new code will be written. We will then finalise the report in the following.
+- Discuessed everyones progress with the report and what will be completed before friday.
+
 
 
 
