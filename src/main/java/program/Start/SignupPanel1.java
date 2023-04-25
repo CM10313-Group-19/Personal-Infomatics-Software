@@ -1,6 +1,7 @@
 package program.Start;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class SignupPanel1 extends JPanel {
     private final JTextField emailTextField;
@@ -89,7 +90,12 @@ public class SignupPanel1 extends JPanel {
 
         //If signup button is clicked, signup panel 2 will be displayed if the passwords match and the email is valid and not already in use and all fields are filled. do checks in a method in startpage
         signUpButton.addActionListener(e -> {
-            String attemptCreateAccount = (startPage.validateEmailAndPassword(emailTextField.getText(), passwordField.getText(), confirmPasswordField.getText()));
+            String attemptCreateAccount = null;
+            try {
+                attemptCreateAccount = (startPage.validateEmailAndPassword(emailTextField.getText(), passwordField.getText(), confirmPasswordField.getText()));
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
             System.out.println(attemptCreateAccount);
             switch (attemptCreateAccount) {
                 case "success" -> startPage.SwitchPanel(startPage.signupPanel2);
