@@ -48,17 +48,24 @@ public class Menu extends JPanel {
         weightButton.addActionListener(e -> mainPage.SwitchPanel(mainPage.weightPanel));
         mainPanel.add(weightButton, c);
 
+        c.gridx = 1;
         c.gridy = 2;
+        JButton stepsButton = new JButton("Step Tracker");
+        stepsButton.addActionListener(e -> mainPage.SwitchPanel(mainPage.stepsPanel));
+        mainPanel.add(stepsButton, c);
+
+
+        c.gridy = 3;
         JButton goalsButton = new JButton("Goals");
         goalsButton.addActionListener(e -> mainPage.SwitchPanel(mainPage.goalsPanel));
         mainPanel.add(goalsButton, c);
 
         //insert an empty row
-        c.gridy = 3;
+        c.gridy = 4;
         mainPanel.add(new JLabel(), c);
 
         c.gridx = 1;
-        c.gridy = 4;
+        c.gridy = 5;
         JButton logOutButton = new JButton("Log out");
         logOutButton.addActionListener(e -> mainFrame.SwitchPanel(mainFrame.startPage));
         mainPanel.add(logOutButton, c);

@@ -11,6 +11,7 @@ public class MainPage extends MainGUIPanel {
     public StartPage startPage;
     public Weight weightPanel;
     public Goals goalsPanel;
+    public Steps stepsPanel;
 
 
 
@@ -26,6 +27,7 @@ public class MainPage extends MainGUIPanel {
         weightPanel = new Weight(this, mainFrame);
         goalsPanel = new Goals(this, mainFrame);
         startPage = mainFrame.startPage;
+        stepsPanel = new Steps(this, mainFrame);
 
         this.add(menuPanel);
         }
