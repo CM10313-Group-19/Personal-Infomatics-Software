@@ -3,7 +3,7 @@ package program.MainProgram;
 import com.toedter.calendar.JDateChooser;
 import program.MainFrame;
 import program.NonGUIElements.Validation;
-import program.NonGUIElements.DataPoint;
+import program.NonGUIElements.DataSet;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +18,7 @@ public class Sleep extends Subpage {
 
     private JDateChooser datePicker;
     private TimeChart sleepChart;
-    private List<DataPoint> dataPoints;
+    private List<DataSet.DataPoint> dataPoints;
     public Sleep(MainPage mainPage, MainFrame mainFrame) {
         super();
 
@@ -94,9 +94,8 @@ public class Sleep extends Subpage {
                 String timeSlept = Validation.calculateTimeDifference(sleepTimeValue, wakeTimeValue);
                 Double timeSleptDouble = Double.parseDouble(timeSlept.substring(0,2)) + Double.parseDouble(timeSlept.substring(3,5))/60;
 
-                dataPoints.add(new DataPoint(datePicker.getDate(), timeSleptDouble));
+                dataPoints.add(new DataSet.DataPoint(datePicker.getDate(), timeSleptDouble));
             }
-
         });
 
         //add button like button in weight class that will display a graph of sleep duration over time
@@ -110,7 +109,10 @@ public class Sleep extends Subpage {
                 public void run() {
                     //close all JFrames apart from main frame
                     if(sleepChart != null) sleepChart.dispose();
-                    sleepChart = new TimeChart(dataPoints, "Sleep duration over time", "Sleep duration", "Date",2);
+                    //Create a new array list with new DataSet as only element
+                    List<DataSet> dataSets = new ArrayList<>();
+                    dataSets.add(new DataSet(dataPoints, "Amount of hours you slept"));
+                    sleepChart = new TimeChart(dataSets, "Sleep duration over time", "Sleep duration", "Date",2);
                 }
             });
         });
