@@ -2,12 +2,14 @@ package program.MainProgram;
 
 import com.toedter.calendar.JDateChooser;
 import program.MainFrame;
+import program.NonGUIElements.Validation;
+import program.NonGUIElements.DataPoint;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
-
-//import java.time.*;
 
 public class Sleep extends Subpage {
 
@@ -15,8 +17,8 @@ public class Sleep extends Subpage {
     private final JTextField wakeUpTextField;
 
     private JDateChooser datePicker;
-
-    //private final JTextField sleepTimeTextField;
+    private TimeChart sleepChart;
+    private List<DataPoint> dataPoints;
     public Sleep(MainPage mainPage, MainFrame mainFrame) {
         super();
 
@@ -76,6 +78,7 @@ public class Sleep extends Subpage {
         mainPanel.add(buttonPanel, c);
 
         this.add(mainPanel, BorderLayout.CENTER);
+        dataPoints = new ArrayList<>();
 
         submitButton.addActionListener(e -> {
             String sleepTimeValue = sleepTimeTextField.getText(); // values of user input from text fields
@@ -88,12 +91,30 @@ public class Sleep extends Subpage {
                 JOptionPane.showMessageDialog(null, "Invalid time format. Please put time in the 24HR time format.\nFormat: HH:MM");
             }
             else{
-                System.out.println(sleepTimeValue);
-                System.out.println(wakeTimeValue);
-                JOptionPane.showMessageDialog(null, "Details Submitted.\nTime Slept: " + Validation.calculateTimeDifference(sleepTimeValue, wakeTimeValue) + " hours" + "\nDate: " + datePicker.getDate());
+                String timeSlept = Validation.calculateTimeDifference(sleepTimeValue, wakeTimeValue);
+                Double timeSleptDouble = Double.parseDouble(timeSlept.substring(0,2)) + Double.parseDouble(timeSlept.substring(3,5))/60;
+
+                dataPoints.add(new DataPoint(datePicker.getDate(), timeSleptDouble));
             }
 
         });
+
+        //add button like button in weight class that will display a graph of sleep duration over time
+        JButton chartButton = new JButton("Display sleep chart");
+        c.gridx = 0;
+        c.gridy = 8;
+        mainPanel.add(chartButton, c);
+
+        chartButton.addActionListener(e -> {
+            SwingUtilities.invokeLater(new Runnable() {
+                public void run() {
+                    //close all JFrames apart from main frame
+                    if(sleepChart != null) sleepChart.dispose();
+                    sleepChart = new TimeChart(dataPoints, "Sleep duration over time", "Sleep duration", "Date",2);
+                }
+            });
+        });
+
 
         //If back button is clicked, menu will be displayed
         this.backButton.addActionListener(e -> mainPage.SwitchPanel(mainPage.menuPanel));

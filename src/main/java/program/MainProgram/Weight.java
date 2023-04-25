@@ -2,16 +2,24 @@ package program.MainProgram;
 
 import com.toedter.calendar.JDateChooser;
 import program.MainFrame;
+import program.NonGUIElements.DataPoint;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class Weight extends Subpage{
 
     private JTextField weightTextField;
     private JDateChooser datePicker;
+    private TimeChart weightChart;
+    private List<DataPoint> dataPoints;
 
     public Weight(MainPage mainPage, MainFrame mainFrame) {super();
 
@@ -58,27 +66,35 @@ public class Weight extends Subpage{
 
         this.add(mainPanel, BorderLayout.CENTER);
 
-        //If weight textfield is clicked, text will be cleared
-        weightTextField.addKeyListener(new KeyAdapter() {
+        //Only allow numbers and a decimal point with 2 decimal places to be entered into the weight textfield
+
+        weightTextField.addFocusListener(new FocusAdapter() {
             @Override
-            public void keyTyped(KeyEvent e) {
-                super.keyTyped(e);
-                weightTextField.setText("");
+            public void focusGained(FocusEvent e) {
+                super.focusGained(e);
+                if (weightTextField.getText().equals("Enter weight in kg")) {
+                    weightTextField.setText("");
+                }
             }
         });
-
-        //Only allow numbers and a decimal point with 2 decimal places to be entered into the weight textfield
+        //Only allow up to 3 digits before the decimal point and 2 digits after
         weightTextField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
-                super.keyTyped(e);
                 char c = e.getKeyChar();
-                if (!((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE) || (c == KeyEvent.VK_PERIOD)))) {
+                if (!(Character.isDigit(c) || c == '.')) {
+                    e.consume();
+                } else if (c == '.' && weightTextField.getText().contains(".")) {
+                    e.consume();
+                } else if (Character.isDigit(c) && weightTextField.getText().indexOf('.') != -1
+                        && weightTextField.getText().substring(weightTextField.getText().indexOf('.')).length() == 3) {
+                    e.consume();
+                } else if (weightTextField.getText().length() >= 6) {
                     e.consume();
                 }
             }
-
         });
+
 
         submitButton.addActionListener(e -> {
 
@@ -86,8 +102,27 @@ public class Weight extends Subpage{
                 JOptionPane.showMessageDialog(null, "Please enter a weight and date");
             }
             else{
-                JOptionPane.showMessageDialog(null, "Details Submitted.\nWeight: " + weightTextField.getText() + "kg" + "\nDate: " + datePicker.getDate());
+                dataPoints.add(new DataPoint(datePicker.getDate(), Double.parseDouble(weightTextField.getText())));
             }
+        });
+
+        //Display weight chart
+        c.gridx = 0;
+        c.gridy = 6;
+        JButton chartButton = new JButton("Display Weight Chart");
+        mainPanel.add(chartButton, c);
+
+        dataPoints = new ArrayList<>();
+
+        //if chart button is clicked, chart will be displayed
+        chartButton.addActionListener(e -> {
+            SwingUtilities.invokeLater(new Runnable() {
+                public void run() {
+                    //close all JFrames apart from main frame
+                    if(weightChart != null) weightChart.dispose();
+                    weightChart = new TimeChart(dataPoints, "Weight over time", "Weight", "Date",10);
+                }
+            });
         });
 
         //If back button is clicked, menu will be displayed

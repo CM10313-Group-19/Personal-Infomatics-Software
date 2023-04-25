@@ -1,6 +1,7 @@
 package program.MainProgram;
 
 import org.junit.jupiter.api.Test;
+import program.NonGUIElements.Validation;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,7 +9,7 @@ class ValidationTest {
 
     @Test
     void calculateTimeDifference() {
-        assertEquals( "00:00",Validation.calculateTimeDifference("12:00", "12:00"));
+        assertEquals( "00:00", Validation.calculateTimeDifference("12:00", "12:00"));
         assertEquals( "00:01",Validation.calculateTimeDifference("12:00", "12:01"));
         assertEquals( "11:02",Validation.calculateTimeDifference("01:00", "12:02"));
         assertEquals( "23:23",Validation.calculateTimeDifference("00:00", "23:23"));

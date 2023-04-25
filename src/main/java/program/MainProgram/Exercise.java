@@ -1,6 +1,7 @@
 package program.MainProgram;
 
 import program.MainFrame;
+import program.NonGUIElements.Validation;
 
 import javax.swing.*;
 import java.awt.*;
