@@ -22,9 +22,9 @@ public class Steps extends Subpage{
 
     public Steps(MainPage mainPage, MainFrame mainFrame) {super();
 
-        JLabel weightLabel = new JLabel("Step Tracker");
-        weightLabel.setFont(new Font("Arial", Font.BOLD, 25));
-        weightLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 30, 0));
+        JLabel stepsLabel = new JLabel("Step Tracker");
+        stepsLabel.setFont(new Font("Arial", Font.BOLD, 25));
+        stepsLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 30, 0));
 
         //set layout to gridbaglayout and add components
         GridBagConstraints c = new GridBagConstraints();
@@ -33,7 +33,7 @@ public class Steps extends Subpage{
 
         c.gridx = 0;
         c.gridy = 0;
-        mainPanel.add(weightLabel, c);
+        mainPanel.add(stepsLabel, c);
 
         c.gridx = 0;
         c.gridy = 1;
@@ -90,14 +90,13 @@ public class Steps extends Subpage{
         submitButton.addActionListener(e -> {
 
             if(datePicker.getDate() == null){
-                JOptionPane.showMessageDialog(null, "Please enter a weight and date");
+                JOptionPane.showMessageDialog(null, "Please enter a number of steps and date");
             }
             else{
                 dataPoints.add(new DataPoint(datePicker.getDate(), Double.parseDouble(stepsTextField.getText())));
             }
         });
 
-        //Display weight chart
         c.gridx = 0;
         c.gridy = 6;
         JButton chartButton = new JButton("Display steps chart");
