@@ -160,7 +160,7 @@ public class StartPage extends MainGUIPanel {
 
     protected void createAccount(String email, String password, String name, Date dateOfBirth, int weight){
 
-        Login.signup_user(email, password,dateOfBirth.getYear()+1900+"/"+(dateOfBirth.getMonth()+1)+"/"+(dateOfBirth.getDate()));
+        Login.signup_user(email, password,dateOfBirth.getYear()+1900+"-"+(dateOfBirth.getMonth()+1)+"-"+(dateOfBirth.getDate()));
         //store the account information in the database
         //Print account information to the console
         System.out.println("Account created and should be stored in the database");
