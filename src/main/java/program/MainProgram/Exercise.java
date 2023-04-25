@@ -1,5 +1,6 @@
 package program.MainProgram;
 
+import com.toedter.calendar.JDateChooser;
 import program.MainFrame;
 import program.NonGUIElements.Validation;
 
@@ -17,8 +18,9 @@ public class Exercise extends Subpage {
     private String type;
     private String exerciseTime;
     private String distance; //in km, to 2 dp
-    private int duration; //duration in minutes
+    private int duration;
     private String elevationGain; //in metres, to 2 dp
+    private JDateChooser datePicker;
 
     //Dropdown menu to pick between activity types
     private final JComboBox<String> activityType = new JComboBox<>(new String[]{"Running", "Cycling", "Swimming"});
@@ -89,13 +91,22 @@ public class Exercise extends Subpage {
         elevationTextField.setText("Elevation gain in m");
         mainPanel.add(elevationTextField, c);
 
+        c.gridx = 0;
+        c.gridy = 11;
+        mainPanel.add(new JLabel("Enter date that exercise was recorded on:"), c);
+
+        c.gridx = 0;
+        c.gridy = 12;
+        datePicker = new JDateChooser();
+        mainPanel.add(datePicker, c);
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(1,2));
         JButton submitButton = new JButton("Submit");
         buttonPanel.add(submitButton);
 
         c.gridx = 0;
-        c.gridy =11;
+        c.gridy =13;
         c.gridwidth = 2;
         mainPanel.add(buttonPanel, c);
 
