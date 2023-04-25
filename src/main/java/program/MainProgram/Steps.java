@@ -2,7 +2,7 @@ package program.MainProgram;
 
 import com.toedter.calendar.JDateChooser;
 import program.MainFrame;
-import program.NonGUIElements.DataPoint;
+import program.NonGUIElements.DataSet;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +18,7 @@ public class Steps extends Subpage{
     private JTextField stepsTextField;
     private JDateChooser datePicker;
     private TimeChart stepsChart;
-    private List<DataPoint> dataPoints;
+    private List<DataSet.DataPoint> dataPoints;
 
     public Steps(MainPage mainPage, MainFrame mainFrame) {super();
 
@@ -93,7 +93,7 @@ public class Steps extends Subpage{
                 JOptionPane.showMessageDialog(null, "Please enter a number of steps and date");
             }
             else{
-                dataPoints.add(new DataPoint(datePicker.getDate(), Double.parseDouble(stepsTextField.getText())));
+                dataPoints.add(new DataSet.DataPoint(datePicker.getDate(), Double.parseDouble(stepsTextField.getText())));
             }
         });
 
@@ -110,7 +110,9 @@ public class Steps extends Subpage{
                 public void run() {
                     //close all JFrames apart from main frame
                     if(stepsChart != null) stepsChart.dispose();
-                    stepsChart = new TimeChart(dataPoints, "Steps over time", "Steps", "Date",10);
+                    List<DataSet> dataSets = new ArrayList<>();
+                    dataSets.add(new DataSet(dataPoints, "Number of steps you took that day"));
+                    stepsChart = new TimeChart(dataSets, "Steps over time", "Steps", "Date",10);
                 }
             });
         });

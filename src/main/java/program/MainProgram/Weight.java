@@ -2,7 +2,7 @@ package program.MainProgram;
 
 import com.toedter.calendar.JDateChooser;
 import program.MainFrame;
-import program.NonGUIElements.DataPoint;
+import program.NonGUIElements.DataSet;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +11,6 @@ import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Weight extends Subpage{
@@ -19,7 +18,7 @@ public class Weight extends Subpage{
     private JTextField weightTextField;
     private JDateChooser datePicker;
     private TimeChart weightChart;
-    private List<DataPoint> dataPoints;
+    private List<DataSet.DataPoint> dataPoints;
 
     public Weight(MainPage mainPage, MainFrame mainFrame) {super();
 
@@ -102,7 +101,7 @@ public class Weight extends Subpage{
                 JOptionPane.showMessageDialog(null, "Please enter a weight and date");
             }
             else{
-                dataPoints.add(new DataPoint(datePicker.getDate(), Double.parseDouble(weightTextField.getText())));
+                dataPoints.add(new DataSet.DataPoint(datePicker.getDate(), Double.parseDouble(weightTextField.getText())));
             }
         });
 
@@ -120,7 +119,9 @@ public class Weight extends Subpage{
                 public void run() {
                     //close all JFrames apart from main frame
                     if(weightChart != null) weightChart.dispose();
-                    weightChart = new TimeChart(dataPoints, "Weight over time", "Weight", "Date",10);
+                    List<DataSet> dataSets = new ArrayList<>();
+                    dataSets.add(new DataSet(dataPoints, "Your weight in kg"));
+                    weightChart = new TimeChart(dataSets, "Weight over time", "Weight", "Date",10);
                 }
             });
         });

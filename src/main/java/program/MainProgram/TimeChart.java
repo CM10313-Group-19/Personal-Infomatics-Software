@@ -8,7 +8,7 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.ValueAxis;
 import org.jfree.data.category.DefaultCategoryDataset;
-import program.NonGUIElements.DataPoint;
+import program.NonGUIElements.DataSet;
 
 import java.util.List;
 
@@ -16,10 +16,10 @@ public class TimeChart extends JFrame {
 
     private static final long serialVersionUID = 1L;
 
-    public TimeChart(List<DataPoint> dataPoints, String title, String xAxisLabel, String yAxisLabel, int scaleIncrement) {
+    public TimeChart(List<DataSet> dataSets, String title, String xAxisLabel, String yAxisLabel, int scaleIncrement) {
         super(title);
         // Create dataset
-        DefaultCategoryDataset dataset = createDataset(dataPoints);
+        DefaultCategoryDataset dataset = createDataset(dataSets);
         // Create chart
         JFreeChart chart = ChartFactory.createLineChart(
                 title, // Chart title
@@ -30,8 +30,8 @@ public class TimeChart extends JFrame {
 
         // Set the range of the y-axis
         ValueAxis yAxis = chart.getCategoryPlot().getRangeAxis();
-        double minY = getRangeBounds(dataPoints, false);
-        double maxY = getRangeBounds(dataPoints, true);
+        double minY = getRangeBounds(dataSets.get(0).getDataPoints(), false);
+        double maxY = getRangeBounds(dataSets.get(0).getDataPoints(), true);
         minY = Math.floor(minY / scaleIncrement) * scaleIncrement;
         maxY = Math.ceil(maxY / scaleIncrement) * scaleIncrement;
         if (minY == maxY) {
@@ -51,23 +51,23 @@ public class TimeChart extends JFrame {
         });
     }
 
-    private DefaultCategoryDataset createDataset(List<DataPoint> dataPoints) {
+    private DefaultCategoryDataset createDataset(List<DataSet> dataSetIn) {
 
-        String series1 = "Weight recorded";
+        String series1 = dataSetIn.get(0).getSeriesName();
 
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
-        for (DataPoint dataPoint : dataPoints) {
+        for (DataSet.DataPoint dataPoint : dataSetIn.get(0).getDataPoints()) {
             //print date in format dd/mm/yyyy
             String dateFormated = dataPoint.getDate().getDate()+"/"+(dataPoint.getDate().getMonth()+1)+"/"+(dataPoint.getDate().getYear()+1900);
             dataset.addValue(dataPoint.getValue(), series1, dateFormated);
         }
         return dataset;
     }
-    private double getRangeBounds(List<DataPoint> dataPoints , boolean max) {
+    private double getRangeBounds(List<DataSet.DataPoint> dataPoints , boolean max) {
         //if max is true, returns the max value in the list of datapoint.weight, otherwise returns the min value
         double value = dataPoints.get(0).getValue();
-        for (DataPoint dataPoint : dataPoints) {
+        for (DataSet.DataPoint dataPoint : dataPoints) {
             if (max) {
                 if (dataPoint.getValue() > value) {
                     value = dataPoint.getValue();
