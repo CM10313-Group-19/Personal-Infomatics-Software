@@ -1,8 +1,9 @@
 package program.Start;
 import program.MainFrame;
 import program.MainGUIPanel;
-import com.toedter.calendar.JDateChooser;
+import program.BackendCommunication.Login;
 
+import java.io.IOException;
 import java.util.Date;
 
 /**
@@ -31,6 +32,9 @@ public class StartPage extends MainGUIPanel {
      */
     protected boolean Login(String email, String password) {
 
+        ;
+        if(Login.login_user(email,password)!=-1)return true;
+
         //TEMPORARY CODE:
         if (email.equals("test") && password.equals("test")) {
             System.out.println("Login Successful");
@@ -46,7 +50,7 @@ public class StartPage extends MainGUIPanel {
      * @param confirmPassword is the password entered by a new user to confirm their password
      * @return a string value indicating the result of the attempt to create an account. If the account was created successfully, the string "valid" is returned. If the email is already in use, the string "Email already in use" is returned. If the passwords do not match, the string "Passwords do not match" is returned. If the password is not secure enough, the string "Password not secure enough" is returned.
      */
-    protected String validateEmailAndPassword(String email, String password, String confirmPassword) {
+    protected String validateEmailAndPassword(String email, String password, String confirmPassword) throws IOException {
         if (!checkEmailIsValidFormat(email)) return "invalid email";
         else if (checkEmailInUse(email)) return "email in use";
         else if (!password.equals(confirmPassword)) return "passwords do not match";
@@ -60,9 +64,9 @@ public class StartPage extends MainGUIPanel {
      * @param email is the email entered by a new user to create an account
      * @return a boolean value indicating if the email is already in use
      */
-    private boolean checkEmailInUse(String email) {
+    private boolean checkEmailInUse(String email) throws IOException {
         //Implement method to check if the email is already in use
-        return false;
+        return Login.check_email_in_use(email);
     }
 
     /**
@@ -155,6 +159,8 @@ public class StartPage extends MainGUIPanel {
      */
 
     protected void createAccount(String email, String password, String name, Date dateOfBirth, int weight){
+
+        Login.signup_user(email, password,dateOfBirth.getYear()+1900+"/"+(dateOfBirth.getMonth()+1)+"/"+(dateOfBirth.getDate()));
         //store the account information in the database
         //Print account information to the console
         System.out.println("Account created and should be stored in the database");
