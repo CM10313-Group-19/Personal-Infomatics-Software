@@ -2,12 +2,14 @@ package program.MainProgram;
 
 import com.toedter.calendar.JDateChooser;
 import program.MainFrame;
+import program.NonGUIElements.DataSet;
 import program.NonGUIElements.Validation;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.List;
 
 public class Exercise extends Subpage {
 
@@ -21,6 +23,9 @@ public class Exercise extends Subpage {
     private int duration;
     private String elevationGain; //in metres, to 2 dp
     private JDateChooser datePicker;
+    private List<DataSet> dataSets;
+
+
 
     //Dropdown menu to pick between activity types
     private final JComboBox<String> activityType = new JComboBox<>(new String[]{"Running", "Cycling", "Swimming"});
@@ -110,11 +115,22 @@ public class Exercise extends Subpage {
         c.gridwidth = 2;
         mainPanel.add(buttonPanel, c);
 
+        //Add a button that creates a graph
+        c.gridx = 0;
+        c.gridy = 14;
+        JButton exerciseStatisticsButton = new JButton("View exercise statistics");
+        mainPanel.add(exerciseStatisticsButton, c);
+
+        exerciseStatisticsButton.addActionListener(e -> mainPage.SwitchPanel(mainPage.exerciseStatistics));
+
         this.add(mainPanel, BorderLayout.CENTER);
 
         datePicker.addPropertyChangeListener(e -> {
-            if(datePicker.getDate().after(new java.util.Date())){
-                datePicker.setDate(new java.util.Date());
+            //check not null
+            if(datePicker.getDate() != null){
+                if(datePicker.getDate().after(new java.util.Date())){
+                    datePicker.setDate(new java.util.Date());
+                }
             }
         });
 
@@ -134,7 +150,6 @@ public class Exercise extends Subpage {
                 }
             }
         });
-
 
         //if text fileds are clicked, clear the text
         startTimeTextField.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -193,7 +208,6 @@ public class Exercise extends Subpage {
                 elevationTextField.setEditable(true);
             }
         });
-
 
         submitButton.addActionListener(e -> {
 
