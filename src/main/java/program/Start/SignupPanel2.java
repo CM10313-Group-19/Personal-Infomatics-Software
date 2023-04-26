@@ -4,6 +4,8 @@ import program.MainFrame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -72,11 +74,20 @@ public class SignupPanel2 extends JPanel {
         c.gridx = 0;
         c.gridy = 5;
         weightTextField = new JTextField();
-        //make weight text field only accept numbers
+
+        //Only allow up to 3 digits before the decimal point and 2 digits after
         weightTextField.addKeyListener(new KeyAdapter() {
+            @Override
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
-                if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+                if (!(Character.isDigit(c) || c == '.')) {
+                    e.consume();
+                } else if (c == '.' && weightTextField.getText().contains(".")) {
+                    e.consume();
+                } else if (Character.isDigit(c) && weightTextField.getText().indexOf('.') != -1
+                        && weightTextField.getText().substring(weightTextField.getText().indexOf('.')).length() == 3) {
+                    e.consume();
+                } else if (weightTextField.getText().length() >= 6) {
                     e.consume();
                 }
             }

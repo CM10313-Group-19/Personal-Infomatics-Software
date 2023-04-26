@@ -2,6 +2,7 @@ package program.Start;
 import program.MainFrame;
 import program.MainGUIPanel;
 import program.BackendCommunication.Login;
+import program.NonGUIElements.Validation;
 
 import java.io.IOException;
 import java.util.Date;
@@ -15,6 +16,7 @@ public class StartPage extends MainGUIPanel {
     public LoginPanel loginPanel;
     public SignupPanel1 signupPanel1;
     public SignupPanel2 signupPanel2;
+    public String user_id;
 
     public StartPage(MainFrame mainFrame) {
         super(mainFrame);
@@ -30,16 +32,10 @@ public class StartPage extends MainGUIPanel {
      * @param password is the password entered by an existing user
      * @return A boolean value indicating successful login
      */
-    protected boolean Login(String email, String password) {
+    protected boolean login(String email, String password) {
 
-        ;
         if(Login.login_user(email,password)!=-1)return true;
 
-        //TEMPORARY CODE:
-        if (email.equals("test") && password.equals("test")) {
-            System.out.println("Login Successful");
-            return true;
-        }
         return false;
     }
 
@@ -94,8 +90,6 @@ public class StartPage extends MainGUIPanel {
         // Check if local part contains consecutive periods
         String prohibitedChars = "\"(),:;<>@[\\]";
         for (int i = 0; i < split_email[0].length()-1; i++) {
-            System.out.println(split_email[0].charAt(i));
-            System.out.println(split_email[0].length());
             if (split_email[0].contains(Character.toString(prohibitedChars.charAt(i)))){
                 return false;
             }
@@ -131,7 +125,6 @@ public class StartPage extends MainGUIPanel {
         boolean special_character_present = false;
         //Check if password is long enough
         if (password.length() < 8) {
-            System.out.println("Password too short");
             return false;
         }
         for (int i = 0; i < special_characters.length(); i++) {
@@ -158,17 +151,10 @@ public class StartPage extends MainGUIPanel {
      * @return a boolean value indicating if the account was created successfully
      */
 
-    protected void createAccount(String email, String password, String name, Date dateOfBirth, int weight){
+    protected void createAccount(String email, String password, String name, Date dateOfBirth, double weight){
 
-        Login.signup_user(email, password,dateOfBirth.getYear()+1900+"-"+(dateOfBirth.getMonth()+1)+"-"+(dateOfBirth.getDate()));
-        //store the account information in the database
-        //Print account information to the console
-        System.out.println("Account created and should be stored in the database");
-        System.out.println("Email: " + email);
-        System.out.println("Password: " + password);
-        System.out.println("Name: " + name);
-        System.out.println("Date of Birth: " + dateOfBirth);
-        System.out.println("Weight: " + weight);
+        user_id= String.valueOf(Login.signup_user(email, password, Validation.dateToyyyymmdd(dateOfBirth), Double.toString(weight)));
+
     }
 }
 
