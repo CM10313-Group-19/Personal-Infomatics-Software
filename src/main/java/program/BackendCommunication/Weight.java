@@ -11,6 +11,13 @@ import static program.BackendCommunication.Requests.post_request;
 
 public class Weight {
 
+    /**
+     * Adds a new weight record for the user
+     * @param user_id UserId of the user
+     * @param day_measured The day the weight was measured, in the format Y-m-d
+     * @param value The value the weight was measured at
+     * @return A boolean relating to if the recording was successful
+     */
     public static Boolean record_weight(String user_id, String day_measured, String value) {
         // Create the form data
         Dictionary<String, String> weight_data = new Hashtable<String, String>();
@@ -28,6 +35,11 @@ public class Weight {
         }
     }
 
+    /**
+     * Gets the most recent recorded weight
+     * @param user_id The id of the user
+     * @return The most recent recorded weight
+     */
     public static WeightData get_weight(String user_id) {
         Dictionary<String, String> params = new Hashtable<>();
         params.put("id", user_id);
@@ -37,23 +49,19 @@ public class Weight {
 
             if (response.isSuccessful()) {
                 ObjectMapper mapper = new ObjectMapper();
-
-                WeightData weight = mapper.readValue(response.body().string(), WeightData.class);
-                System.out.println("weight_id " + weight.weight_id);
-                System.out.println("date_taken " + weight.day_measured);
-                System.out.println("value " + weight.value);
-
-                return weight;
+                return mapper.readValue(Objects.requireNonNull(response.body()).string(), WeightData.class);
             } else return null;
 
         } catch (Exception e) {
-            e.printStackTrace();
             return null;
         }
     }
 
-    // DOES NOT WORK AT THE MOMENT
-    /*
+    /**
+     * Gets all weight readings for a user
+     * @param user_id The id of the user
+     * @return An array of weight data
+     */
     public static WeightData[] get_weights(String user_id) {
         Dictionary<String, String> params = new Hashtable<>();
         params.put("id", user_id);
@@ -63,26 +71,7 @@ public class Weight {
 
             if (response.isSuccessful()) {
                 ObjectMapper mapper = new ObjectMapper();
-                ArrayList<WeightData> weights = new ArrayList<WeightData>();
-
-                JsonNode weightJson = Json.parse_json(response.body().string());
-
-                assert weightJson != null;
-                for (JsonNode node: weightJson) {
-                    if (!node.isNull()) {
-                        System.out.println(node);
-                        weights.add(mapper.readValue(node.asText(), WeightData.class));
-                    } else break;
-                }
-
-                for (WeightData w: weights
-                     ) {
-                    System.out.println("weight_id " + w.weight_id);
-                    System.out.println("date_taken " + w.day_measured);
-                    System.out.println("value " + w.value);
-                }
-
-                return weights.toArray(new WeightData[]{});
+                return mapper.readValue(Objects.requireNonNull(response.body()).string(), WeightData[].class);
             } else return null;
 
         } catch (Exception e) {
@@ -90,5 +79,4 @@ public class Weight {
             return null;
         }
     }
-     */
 }
