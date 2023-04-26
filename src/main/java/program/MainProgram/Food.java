@@ -138,6 +138,15 @@ public class Food extends Subpage {
         foodHistory.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
         c.gridy = 8;
         mainPanel.add(foodHistory, c);
+
+        datePicker.addPropertyChangeListener(e -> {
+            //check not null
+            if(datePicker.getDate() != null){
+                if(datePicker.getDate().after(new java.util.Date())){
+                    datePicker.setDate(new java.util.Date());
+                }
+            }
+        });
     }
 
 }

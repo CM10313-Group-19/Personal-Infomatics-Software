@@ -87,8 +87,12 @@ public class Validation {
             return 0;
         }
     }
-    public static String dateToyyyymmdd(Date date){
+    public static String dateToyyyymmddDash(Date date){
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        return format.format(date);
+    }
+    public static String dateToddmmyyyySlash(Date date){
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         return format.format(date);
     }
 }

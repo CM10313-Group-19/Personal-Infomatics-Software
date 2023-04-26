@@ -9,6 +9,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.ValueAxis;
 import org.jfree.data.category.DefaultCategoryDataset;
 import program.NonGUIElements.DataSet;
+import program.NonGUIElements.Validation;
 
 import java.util.List;
 
@@ -51,16 +52,17 @@ public class TimeChart extends JFrame {
         });
     }
 
-    private DefaultCategoryDataset createDataset(List<DataSet> dataSetIn) {
-
-        String series1 = dataSetIn.get(0).getSeriesName();
+    private DefaultCategoryDataset createDataset(List<DataSet> dataSetsIn) {
+        String seriesNames[] = new String[dataSetsIn.size()];
 
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
-        for (DataSet.DataPoint dataPoint : dataSetIn.get(0).getDataPoints()) {
-            //print date in format dd/mm/yyyy
-            String dateFormated = dataPoint.getDate().getDate()+"/"+(dataPoint.getDate().getMonth()+1)+"/"+(dataPoint.getDate().getYear()+1900);
-            dataset.addValue(dataPoint.getValue(), series1, dateFormated);
+        for(DataSet dataSet : dataSetsIn) {
+            for (DataSet.DataPoint dataPoint : dataSet.getDataPoints()) {
+                //print date in format dd/mm/yyyy
+                String dateFormated = Validation.dateToddmmyyyySlash(dataPoint.getDate());
+                dataset.addValue(dataPoint.getValue(), dataSet.getSeriesName(), dateFormated);
+            }
         }
         return dataset;
     }
