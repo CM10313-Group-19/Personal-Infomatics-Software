@@ -1,10 +1,12 @@
 package program.BackendCommunication;
 
-import java.util.Dictionary;
-import java.util.Hashtable;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import program.DataTypes.WeightData;
 
-import static program.BackendCommunication.Json.parse_json;
+import java.util.*;
+
+import static program.BackendCommunication.Requests.get_request;
 import static program.BackendCommunication.Requests.post_request;
 
 public class Weight {
@@ -20,17 +22,73 @@ public class Weight {
             // Attempt the post request
             var response = post_request("/weight", weight_data);
 
-            // Check it returned successfully
-            if (response.isSuccessful()) {
-                // Parse to json
-                var json = parse_json(Objects.requireNonNull(response.body()).string());
-
-                // Return the value of the `success field`, there is also a `message` field which gives error messages
-                assert json != null;
-                return json.get("success").asBoolean();
-            } else return false;
+            return response.isSuccessful();
         } catch (Exception e) {
             return false;
         }
     }
+
+    public static WeightData get_weight(String user_id) {
+        Dictionary<String, String> params = new Hashtable<>();
+        params.put("id", user_id);
+
+        try {
+            var response = get_request("/weight", params);
+
+            if (response.isSuccessful()) {
+                ObjectMapper mapper = new ObjectMapper();
+
+                WeightData weight = mapper.readValue(response.body().string(), WeightData.class);
+                System.out.println("weight_id " + weight.weight_id);
+                System.out.println("date_taken " + weight.day_measured);
+                System.out.println("value " + weight.value);
+
+                return weight;
+            } else return null;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    // DOES NOT WORK AT THE MOMENT
+    /*
+    public static WeightData[] get_weights(String user_id) {
+        Dictionary<String, String> params = new Hashtable<>();
+        params.put("id", user_id);
+
+        try {
+            var response = get_request("/weights", params);
+
+            if (response.isSuccessful()) {
+                ObjectMapper mapper = new ObjectMapper();
+                ArrayList<WeightData> weights = new ArrayList<WeightData>();
+
+                JsonNode weightJson = Json.parse_json(response.body().string());
+
+                assert weightJson != null;
+                for (JsonNode node: weightJson) {
+                    if (!node.isNull()) {
+                        System.out.println(node);
+                        weights.add(mapper.readValue(node.asText(), WeightData.class));
+                    } else break;
+                }
+
+                for (WeightData w: weights
+                     ) {
+                    System.out.println("weight_id " + w.weight_id);
+                    System.out.println("date_taken " + w.day_measured);
+                    System.out.println("value " + w.value);
+                }
+
+                return weights.toArray(new WeightData[]{});
+            } else return null;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+     */
 }
