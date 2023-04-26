@@ -1,8 +1,7 @@
 package program.BackendCommunication;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import program.DataTypes.WeightData;
+import program.NonGUIElements.DataSet;
 
 import java.util.*;
 
@@ -28,7 +27,7 @@ public class Weight {
         }
     }
 
-    public static WeightData get_weight(String user_id) {
+    public static DataSet.DataPoint get_weight(String user_id) {
         Dictionary<String, String> params = new Hashtable<>();
         params.put("id", user_id);
 
@@ -37,11 +36,10 @@ public class Weight {
 
             if (response.isSuccessful()) {
                 ObjectMapper mapper = new ObjectMapper();
-
-                WeightData weight = mapper.readValue(response.body().string(), WeightData.class);
-                System.out.println("weight_id " + weight.weight_id);
-                System.out.println("date_taken " + weight.day_measured);
-                System.out.println("value " + weight.value);
+                DataSet.DataPoint weight = mapper.readValue(response.body().string(), DataSet.DataPoint.class);
+                System.out.println("weight_id " + weight.getDataID());
+                System.out.println("date_taken " + weight.getDate());
+                System.out.println("value " + weight.getValue());
 
                 return weight;
             } else return null;
@@ -54,7 +52,7 @@ public class Weight {
 
     // DOES NOT WORK AT THE MOMENT
     /*
-    public static WeightData[] get_weights(String user_id) {
+    public static DataSet get_weights(String user_id) {
         Dictionary<String, String> params = new Hashtable<>();
         params.put("id", user_id);
 
@@ -63,7 +61,7 @@ public class Weight {
 
             if (response.isSuccessful()) {
                 ObjectMapper mapper = new ObjectMapper();
-                ArrayList<WeightData> weights = new ArrayList<WeightData>();
+                DataSet weights = mapper.readValue(response.body().string(), DataSet.class);
 
                 JsonNode weightJson = Json.parse_json(response.body().string());
 
@@ -71,18 +69,17 @@ public class Weight {
                 for (JsonNode node: weightJson) {
                     if (!node.isNull()) {
                         System.out.println(node);
-                        weights.add(mapper.readValue(node.asText(), WeightData.class));
+                        weights.getDataPoints().add(mapper.readValue(node.asText(), DataSet.DataPoint.class));
                     } else break;
                 }
 
-                for (WeightData w: weights
-                     ) {
-                    System.out.println("weight_id " + w.weight_id);
-                    System.out.println("date_taken " + w.day_measured);
-                    System.out.println("value " + w.value);
+                for (DataSet.DataPoint w: weights.getDataPoints()) {
+                    System.out.println("weight_id " + w.getDataID());
+                    System.out.println("date_taken " + w.getDate());
+                    System.out.println("value " + w.getValue());
                 }
 
-                return weights.toArray(new WeightData[]{});
+                return weights;
             } else return null;
 
         } catch (Exception e) {
