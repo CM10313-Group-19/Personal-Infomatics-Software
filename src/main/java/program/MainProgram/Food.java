@@ -7,11 +7,6 @@ import javax.swing.*;
 import com.toedter.calendar.JDateChooser;
 
 import java.awt.*;
-import java.text.ParseException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 
 //import java.time.*;
 public class Food extends Subpage {

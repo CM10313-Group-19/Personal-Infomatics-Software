@@ -11,6 +11,7 @@ public class DataSet{
         this.dataPoints = dataPoints;
         this.seriesName = seriesName;
     }
+
     public List<DataPoint> getDataPoints(){
         return dataPoints;
     }

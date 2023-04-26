@@ -12,6 +12,7 @@ public class MainPage extends MainGUIPanel {
     public Weight weightPanel;
     public Goals goalsPanel;
     public Steps stepsPanel;
+    public ExerciseStatistics exerciseStatistics;
 
 
 
@@ -28,6 +29,7 @@ public class MainPage extends MainGUIPanel {
         goalsPanel = new Goals(this, mainFrame);
         startPage = mainFrame.startPage;
         stepsPanel = new Steps(this, mainFrame);
+        exerciseStatistics = new ExerciseStatistics(this, mainFrame);
 
         this.add(menuPanel);
         }
