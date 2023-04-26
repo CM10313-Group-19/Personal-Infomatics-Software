@@ -78,7 +78,6 @@ public class SignupPanel1 extends JPanel {
 
         //When the showPassword box is ticked, passwordField will un-redact what has been typed in the password field
         showPasswordBox.addActionListener(e -> {
-            System.out.println(this.getSize());
             if (showPasswordBox.isSelected()) {
                 passwordField.setEchoChar((char) 0);
                 confirmPasswordField.setEchoChar((char) 0);

@@ -107,14 +107,14 @@ public class SignupPanel2 extends JPanel {
         });
 
         signUpButton.addActionListener(e -> {;
-            if (nameTextField.getText().equals("") || datePicker.getDate() == null || weightTextField.getText().equals("") || Integer.parseInt(weightTextField.getText()) <= 0){
+            if (nameTextField.getText().equals("") || datePicker.getDate() == null || weightTextField.getText().equals("") || Double.parseDouble(weightTextField.getText()) < 0){
                 JOptionPane.showMessageDialog(null, "Please fill in all fields");
             }
-            else if(Integer.parseInt(weightTextField.getText()) > 635){
+            else if(Double.parseDouble(weightTextField.getText()) > 635){
                 JOptionPane.showMessageDialog(null, "Please enter a valid weight");
             }
             else {
-                startPage.createAccount(startPage.signupPanel1.getEmail(), startPage.signupPanel1.getPassword(), nameTextField.getText(), datePicker.getDate(), Integer.parseInt(weightTextField.getText()));
+                startPage.createAccount(startPage.signupPanel1.getEmail(), startPage.signupPanel1.getPassword(), nameTextField.getText(), datePicker.getDate(), Double.parseDouble(weightTextField.getText()));
                 mainFrame.SwitchPanel(mainFrame.mainPage);
             }
         });
