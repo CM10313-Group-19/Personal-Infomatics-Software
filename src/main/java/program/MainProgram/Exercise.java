@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Date;
 import java.util.List;
 
 public class Exercise extends Subpage {
@@ -23,9 +24,7 @@ public class Exercise extends Subpage {
     private int duration;
     private String elevationGain; //in metres, to 2 dp
     private JDateChooser datePicker;
-    private List<DataSet> dataSets;
-
-
+    private List<DataSet> distanceDataSets;
 
     //Dropdown menu to pick between activity types
     private final JComboBox<String> activityType = new JComboBox<>(new String[]{"Running", "Cycling", "Swimming"});
@@ -220,7 +219,7 @@ public class Exercise extends Subpage {
             else if(!(Validation.validateDistanceInput(distanceTextField.getText()))){
                 JOptionPane.showMessageDialog(null, "Invalid distance format. Please put distance in the format: 0.0");
             }
-            else if(!(Validation.validateDistanceInput(elevationTextField.getText()))){
+            else if(!(Validation.validateDistanceInput(elevationTextField.getText())&&elevationTextField!=null)){
                 JOptionPane.showMessageDialog(null, "Invalid elevation gain format. Please put elevation gain in the format: 0.0");
             }
             else if (Validation.calculateTimeDifference(startTimeTextField.getText(), endTimeTextField.getText()).equals("00:00")){ // start time is after end time
@@ -235,11 +234,34 @@ public class Exercise extends Subpage {
                 elevationGain = elevationTextField.getText();
                 type = activityType.getSelectedItem().toString();
                 JOptionPane.showMessageDialog(null, "Details Submitted.\nExercise duration: " + Validation.calculateTimeDifference(startTimeTextField.getText(), endTimeTextField.getText()) + "\nDistance: " + distanceTextField.getText() + "km"+ "\nElevation gain: " + elevationTextField.getText() + "m");
+                updateDateSets(distanceDataSets, type, datePicker.getDate(), Double.parseDouble(distanceTextField.getText()));
             }
 
         });
 
         //If back button is clicked, menu will be displayed
         this.backButton.addActionListener(e -> mainPage.SwitchPanel(mainPage.menuPanel));
+    }
+    private List<DataSet> updateDateSets(List<DataSet> dataSets, String type, Date date, double value){
+        switch (type){
+            case "running":
+                dataSets.get(0).getDataPoints().add(new DataSet.DataPoint(date, value));
+                break;
+            case "cycling":
+                dataSets.get(1).getDataPoints().add(new DataSet.DataPoint(date, value));
+                break;
+            case "swimming":
+                dataSets.get(2).getDataPoints().add(new DataSet.DataPoint(date, value));
+                break;
+        }
+
+        return null;
+    }
+    protected List<DataSet> getDataSets(String choice){
+        switch (choice){
+            case "distance":
+                return distanceDataSets;
+        }
+        return null;
     }
 }
