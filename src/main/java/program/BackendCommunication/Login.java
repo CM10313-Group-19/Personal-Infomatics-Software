@@ -61,7 +61,7 @@ public class Login {
                 // Parse to json
                 var json = parse_json(Objects.requireNonNull(response.body()).string());
 
-                Weight.record_weight(json.get("user_id").asText(), Validation.dateToyyyymmdd(new Date()), weight);
+                Weight.record_weight(json.get("user_id").asText(), Validation.dateToyyyymmddDash(new Date()), weight);
 
                 // Return the value of the `success field`, there is also a `message` field which gives error messages
                 assert json != null;

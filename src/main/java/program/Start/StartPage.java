@@ -153,7 +153,7 @@ public class StartPage extends MainGUIPanel {
 
     protected void createAccount(String email, String password, String name, Date dateOfBirth, double weight){
 
-        user_id= String.valueOf(Login.signup_user(email, password, Validation.dateToyyyymmdd(dateOfBirth), Double.toString(weight)));
+        user_id= String.valueOf(Login.signup_user(email, password, Validation.dateToyyyymmddDash(dateOfBirth), Double.toString(weight)));
 
     }
 }

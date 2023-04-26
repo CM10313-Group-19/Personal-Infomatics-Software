@@ -112,6 +112,12 @@ public class Exercise extends Subpage {
 
         this.add(mainPanel, BorderLayout.CENTER);
 
+        datePicker.addPropertyChangeListener(e -> {
+            if(datePicker.getDate().after(new java.util.Date())){
+                datePicker.setDate(new java.util.Date());
+            }
+        });
+
         //only let user enter numbers in the distance textfield, and only up to 2dp
         distanceTextField.addKeyListener(new KeyAdapter() {
             @Override

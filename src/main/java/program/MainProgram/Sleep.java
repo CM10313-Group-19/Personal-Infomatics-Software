@@ -117,6 +117,14 @@ public class Sleep extends Subpage {
             });
         });
 
+        datePicker.addPropertyChangeListener(e -> {
+            //check not null
+            if(datePicker.getDate() != null){
+                if(datePicker.getDate().after(new java.util.Date())){
+                    datePicker.setDate(new java.util.Date());
+                }
+            }
+        });
 
         //If back button is clicked, menu will be displayed
         this.backButton.addActionListener(e -> mainPage.SwitchPanel(mainPage.menuPanel));
