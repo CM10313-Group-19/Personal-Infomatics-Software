@@ -15,7 +15,7 @@ public class DataSet {
         this.seriesName = seriesName;
     }
 
-    public DataSet fromWeights(List<WeightData> weightData, String seriesName) {
+    public static DataSet fromWeights(List<WeightData> weightData, String seriesName) {
         return new DataSet(weightData.stream().map(DataPoint::new).collect(Collectors.toList()),
                 seriesName);
     }
