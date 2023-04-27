@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -25,11 +26,26 @@ public class Exercise extends Subpage {
     private String elevationGain; //in metres, to 2 dp
     private JDateChooser datePicker;
     private List<DataSet> distanceDataSets;
+    private DataSet RunningDistanceDataSet;
+    private DataSet CyclingDistanceDataSet;
+    private DataSet SwimmingDistanceDataSet;
+    private DataSet CombinedDistanceDataSet;
 
     //Dropdown menu to pick between activity types
     private final JComboBox<String> activityType = new JComboBox<>(new String[]{"Running", "Cycling", "Swimming"});
 
     public Exercise(MainPage mainPage, MainFrame mainFrame) {super();
+
+        distanceDataSets = new ArrayList<>();
+        //set up the data sets for the different types of exercise
+        RunningDistanceDataSet = new DataSet(new ArrayList<>(), "Running Distance");
+        CyclingDistanceDataSet = new DataSet(new ArrayList<>(), "Cycling Distance");
+        SwimmingDistanceDataSet = new DataSet(new ArrayList<>(), "Swimming Distance");
+        CombinedDistanceDataSet = new DataSet(new ArrayList<>(), "Combined Distance");
+        distanceDataSets.add(RunningDistanceDataSet);
+        distanceDataSets.add(CyclingDistanceDataSet);
+        distanceDataSets.add(SwimmingDistanceDataSet);
+        distanceDataSets.add(CombinedDistanceDataSet);
 
         JLabel exerciseLabel = new JLabel("Exercise");
         exerciseLabel.setFont(new Font("Arial", Font.BOLD, 25));
@@ -219,9 +235,6 @@ public class Exercise extends Subpage {
             else if(!(Validation.validateDistanceInput(distanceTextField.getText()))){
                 JOptionPane.showMessageDialog(null, "Invalid distance format. Please put distance in the format: 0.0");
             }
-            else if(!(Validation.validateDistanceInput(elevationTextField.getText())&&elevationTextField!=null)){
-                JOptionPane.showMessageDialog(null, "Invalid elevation gain format. Please put elevation gain in the format: 0.0");
-            }
             else if (Validation.calculateTimeDifference(startTimeTextField.getText(), endTimeTextField.getText()).equals("00:00")){ // start time is after end time
                 JOptionPane.showMessageDialog(null, "Start time cannot be after end time");
             }
@@ -242,20 +255,29 @@ public class Exercise extends Subpage {
         //If back button is clicked, menu will be displayed
         this.backButton.addActionListener(e -> mainPage.SwitchPanel(mainPage.menuPanel));
     }
-    private List<DataSet> updateDateSets(List<DataSet> dataSets, String type, Date date, double value){
+    private List<DataSet> updateDateSets(List<DataSet> dataSet, String type, Date date, double value){
+
         switch (type){
-            case "running":
-                dataSets.get(0).getDataPoints().add(new DataSet.DataPoint(date, value));
+            case "Running":
+                dataSet.get(0).getDataPoints().add(new DataSet.DataPoint(date, value));
                 break;
-            case "cycling":
-                dataSets.get(1).getDataPoints().add(new DataSet.DataPoint(date, value));
+            case "Cycling":
+                dataSet.get(1).getDataPoints().add(new DataSet.DataPoint(date, value));
                 break;
-            case "swimming":
-                dataSets.get(2).getDataPoints().add(new DataSet.DataPoint(date, value));
+            case "Swimming":
+                dataSet.get(2).getDataPoints().add(new DataSet.DataPoint(date, value));
                 break;
         }
+        //if any exercise on that date already exists, add distance in dataSet.get(3) to the new distance, if not add new distance
+        if (dataSet.get(3).checkForDuplicate(date)){
+            DataSet.DataPoint oldDataPoint = dataSet.get(3).getDataPoint(date);
+            dataSet.get(3).getDataPoints().add(new DataSet.DataPoint(date, oldDataPoint.getValue() + value));
+        }
+        else {
+            dataSet.get(3).getDataPoints().add(new DataSet.DataPoint(date, value));
+        }
 
-        return null;
+        return dataSet;
     }
     protected List<DataSet> getDataSets(String choice){
         switch (choice){

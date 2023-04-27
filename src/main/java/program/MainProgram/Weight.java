@@ -1,8 +1,12 @@
 package program.MainProgram;
 
 import com.toedter.calendar.JDateChooser;
+import program.BackendCommunication.LoginBackend;
 import program.MainFrame;
 import program.NonGUIElements.DataSet;
+import program.BackendCommunication.WeightBackend;
+import program.NonGUIElements.Validation;
+import program.Start.StartPage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -100,7 +104,12 @@ public class Weight extends Subpage{
             if(datePicker.getDate() == null){
                 JOptionPane.showMessageDialog(null, "Please enter a weight and date");
             }
+            else if(weightTextField.getText().equals("Enter weight in kg") || weightTextField.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Please enter a weight");
+            }
             else{
+                //add weight to database
+                WeightBackend.record_weight(mainFrame.startPage.getUserID(),Validation.dateToyyyymmddDash(datePicker.getDate()), weightTextField.getText());
                 dataPoints.add(new DataSet.DataPoint(datePicker.getDate(), Double.parseDouble(weightTextField.getText())));
             }
         });
@@ -111,14 +120,14 @@ public class Weight extends Subpage{
         JButton chartButton = new JButton("Display Weight Chart");
         mainPanel.add(chartButton, c);
 
-        dataPoints = new ArrayList<>();
-
         //if chart button is clicked, chart will be displayed
         chartButton.addActionListener(e -> {
             SwingUtilities.invokeLater(new Runnable() {
                 public void run() {
+
                     //close all JFrames apart from main frame
                     if(weightChart != null) weightChart.dispose();
+                    dataPoints = DataSet.fromWeights(WeightBackend.get_weights(mainFrame.startPage.getUserID()), "weight").getDataPoints();
                     List<DataSet> dataSets = new ArrayList<>();
                     dataSets.add(new DataSet(dataPoints, "Your weight in kg"));
                     weightChart = new TimeChart(dataSets, "Weight over time", "Weight", "Date",10);

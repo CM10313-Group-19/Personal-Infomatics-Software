@@ -31,8 +31,8 @@ public class TimeChart extends JFrame {
 
         // Set the range of the y-axis
         ValueAxis yAxis = chart.getCategoryPlot().getRangeAxis();
-        double minY = getRangeBounds(dataSets.get(0).getDataPoints(), false);
-        double maxY = getRangeBounds(dataSets.get(0).getDataPoints(), true);
+        double minY = getRangeBounds(dataSets, false);
+        double maxY = getRangeBounds(dataSets, true);
         minY = Math.floor(minY / scaleIncrement) * scaleIncrement;
         maxY = Math.ceil(maxY / scaleIncrement) * scaleIncrement;
         if (minY == maxY) {
@@ -53,30 +53,39 @@ public class TimeChart extends JFrame {
     }
 
     private DefaultCategoryDataset createDataset(List<DataSet> dataSetsIn) {
-        String seriesNames[] = new String[dataSetsIn.size()];
 
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
-        for(DataSet dataSet : dataSetsIn) {
-            for (DataSet.DataPoint dataPoint : dataSet.getDataPoints()) {
+        for(DataSet dataSetIn : dataSetsIn) {
+            for (DataSet.DataPoint dataPoint : dataSetIn.getDataPoints()) {
                 //print date in format dd/mm/yyyy
                 String dateFormated = Validation.dateToddmmyyyySlash(dataPoint.getDate());
-                dataset.addValue(dataPoint.getValue(), dataSet.getSeriesName(), dateFormated);
+                dataset.addValue(dataPoint.getValue(), dataSetIn.getSeriesName(), dateFormated);
             }
         }
         return dataset;
     }
-    private double getRangeBounds(List<DataSet.DataPoint> dataPoints , boolean max) {
+    private double getRangeBounds(List<DataSet> dataSets , boolean max) {
         //if max is true, returns the max value in the list of datapoint.weight, otherwise returns the min value
-        double value = dataPoints.get(0).getValue();
-        for (DataSet.DataPoint dataPoint : dataPoints) {
-            if (max) {
-                if (dataPoint.getValue() > value) {
-                    value = dataPoint.getValue();
-                }
-            } else {
-                if (dataPoint.getValue() < value) {
-                    value = dataPoint.getValue();
+        double value = 0;
+        for(int i=0;i<dataSets.size();i++) {
+            if (dataSets.get(i).getDataPoints().size() > 0) {
+                value = dataSets.get(i).getDataPoints().get(0).getValue();
+                break;
+            }
+        }
+        for (DataSet dataSet : dataSets){
+            if (dataSet.getDataPoints().size() > 0) {
+                for (DataSet.DataPoint dataPoint : dataSet.getDataPoints()) {
+                    if (max) {
+                        if (dataPoint.getValue() > value) {
+                            value = dataPoint.getValue();
+                        }
+                    } else {
+                        if (dataPoint.getValue() < value) {
+                            value = dataPoint.getValue();
+                        }
+                    }
                 }
             }
         }

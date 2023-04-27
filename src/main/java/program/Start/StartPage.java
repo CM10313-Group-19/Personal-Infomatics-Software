@@ -1,12 +1,11 @@
 package program.Start;
-import program.BackendCommunication.Weight;
+import program.BackendCommunication.WeightBackend;
 import program.MainFrame;
 import program.MainGUIPanel;
-import program.BackendCommunication.Login;
+import program.BackendCommunication.LoginBackend;
 import program.NonGUIElements.Validation;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -35,7 +34,7 @@ public class StartPage extends MainGUIPanel {
      * @return A boolean value indicating successful login
      */
     protected boolean login(String email, String password) {
-        var user_id = Login.login_user(email, password);
+        var user_id = LoginBackend.login_user(email, password);
 
         if(user_id != -1) {
             this.user_id = String.valueOf(user_id);
@@ -68,7 +67,11 @@ public class StartPage extends MainGUIPanel {
      */
     private boolean checkEmailInUse(String email) throws IOException {
         //Implement method to check if the email is already in use
-        return Login.check_email_in_use(email);
+        return LoginBackend.check_email_in_use(email);
+    }
+
+    public String getUserID() {
+        return user_id;
     }
 
     /**
@@ -158,9 +161,9 @@ public class StartPage extends MainGUIPanel {
      */
 
     protected void createAccount(String email, String password, String name, Date dateOfBirth, double weight){
-        if (Login.signup_user(email, password, Validation.dateToyyyymmddDash(dateOfBirth))){
-            user_id= String.valueOf(Login.login_user(email, password));
-            Weight.record_weight(user_id, Validation.dateToyyyymmddDash(new Date()), String.valueOf(weight));
+        if (LoginBackend.signup_user(email, password, Validation.dateToyyyymmddDash(dateOfBirth))){
+            user_id= String.valueOf(LoginBackend.login_user(email, password));
+            WeightBackend.record_weight(user_id, Validation.dateToyyyymmddDash(new Date()), String.valueOf(weight));
         }
     }
 }

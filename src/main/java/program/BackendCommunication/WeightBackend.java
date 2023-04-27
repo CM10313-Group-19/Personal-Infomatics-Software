@@ -1,6 +1,5 @@
 package program.BackendCommunication;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import program.DataTypes.WeightData;
 
@@ -9,7 +8,7 @@ import java.util.*;
 import static program.BackendCommunication.Requests.get_request;
 import static program.BackendCommunication.Requests.post_request;
 
-public class Weight {
+public class WeightBackend {
 
     /**
      * Adds a new weight record for the user
@@ -62,7 +61,7 @@ public class Weight {
      * @param user_id The id of the user
      * @return An array of weight data
      */
-    public static WeightData[] get_weights(String user_id) {
+    public static List<WeightData> get_weights(String user_id) {
         Dictionary<String, String> params = new Hashtable<>();
         params.put("id", user_id);
 
@@ -71,7 +70,7 @@ public class Weight {
 
             if (response.isSuccessful()) {
                 ObjectMapper mapper = new ObjectMapper();
-                return mapper.readValue(Objects.requireNonNull(response.body()).string(), WeightData[].class);
+                return Arrays.asList(mapper.readValue(Objects.requireNonNull(response.body()).string(), WeightData[].class));
             } else return null;
 
         } catch (Exception e) {

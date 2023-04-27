@@ -1,9 +1,6 @@
 package program.BackendCommunication;
 
-import program.NonGUIElements.Validation;
-
 import java.io.IOException;
-import java.util.Date;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.Objects;
@@ -12,7 +9,7 @@ import static program.BackendCommunication.Json.parse_json;
 import static program.BackendCommunication.Requests.get_request;
 import static program.BackendCommunication.Requests.post_request;
 
-public class Login {
+public class LoginBackend {
     /**
      * Checks if an email exists
      * @param email Email to check

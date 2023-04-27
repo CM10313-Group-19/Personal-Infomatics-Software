@@ -28,6 +28,24 @@ public class DataSet {
         return seriesName;
     }
 
+    public boolean checkForDuplicate(Date date) {
+        for (DataPoint dataPoint : dataPoints) {
+            if (dataPoint.getDate().equals(date)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public DataPoint getDataPoint(Date date) {
+        for (DataPoint dataPoint : dataPoints) {
+            if (dataPoint.getDate().equals(date)) {
+                return dataPoint;
+            }
+        }
+        return null;
+    }
+
     public static class DataPoint {
         private final Date date;
         private final double value;
