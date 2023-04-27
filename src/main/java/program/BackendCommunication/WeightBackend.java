@@ -17,7 +17,7 @@ public class WeightBackend {
      * @param value The value the weight was measured at
      * @return A boolean relating to if the recording was successful
      */
-    public static Boolean record_weight(String user_id, String day_measured, String value) {
+    public static boolean record_weight(String user_id, String day_measured, String value) {
         // Create the form data
         Dictionary<String, String> weight_data = new Hashtable<String, String>();
         weight_data.put("user_id", user_id);
