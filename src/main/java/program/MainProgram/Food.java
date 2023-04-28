@@ -100,6 +100,8 @@ public class Food extends Subpage {
 
         JButton submitButton = new JButton("Submit");
 
+        JButton foodHistoryButton = new JButton("Food History");
+
         // add components to the mainPanel using GridBagConstraints
 
         c.gridy = 4;
@@ -128,16 +130,21 @@ public class Food extends Subpage {
         c.gridwidth = 2;
         mainPanel.add(submitButton, c);
 
-        JLabel foodHistory = new JLabel("History");
-        foodHistory.setFont(new Font("Arial", Font.BOLD, 20));
-        foodHistory.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
+        c.gridx = 0;
         c.gridy = 8;
-        mainPanel.add(foodHistory, c);
+        c.gridwidth = 2;
+        mainPanel.add(foodHistoryButton, c);
+
+        // JLabel foodHistory = new JLabel("History");
+        // foodHistory.setFont(new Font("Arial", Font.BOLD, 20));
+        // foodHistory.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
+        // c.gridy = 8;
+        // mainPanel.add(foodHistory, c);
 
         datePicker.addPropertyChangeListener(e -> {
-            //check not null
-            if(datePicker.getDate() != null){
-                if(datePicker.getDate().after(new java.util.Date())){
+            // check not null
+            if (datePicker.getDate() != null) {
+                if (datePicker.getDate().after(new java.util.Date())) {
                     datePicker.setDate(new java.util.Date());
                 }
             }
