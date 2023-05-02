@@ -28,14 +28,5 @@ Main repository for the coursework
     - File required for maven used to automatically  run tests
     - If external libraries are used, they can be added to the project as a dependency  here
 -------------------------------------------
-  
-</p></details>
-
-### What should be being worked on at the moment:
-<details><summary>View current</summary>
-<p>
-  
-  - 1st sprint <br>
-  Details of who is doing what is in meeting mintues 6 (27-02-2023) and the kanban board for sprint 1
-</p></details>
+ 
 
