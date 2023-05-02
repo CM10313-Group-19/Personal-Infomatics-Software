@@ -34,7 +34,7 @@ titled appendices.
       - Features so far implemented by your 3 completed sprints
       - Directions for further evolving your software system  
 
-  - [ ] Table of contents
+  - [x] Table of contents
     - Contains the title of each section and subsection of the report, with page numbers
     - Numbering should start from the title page
     - Indicate the authors of each section or subsection
@@ -45,24 +45,24 @@ NFR3.1 and NFR3.2)
     - What can make a PI software system effective for its users
     - A clear statement of the main idea behind your particular PI software system. 
 
-  - [ ] Agile Software Process Planning and Management (2 pages)
+  - [x] Agile Software Process Planning and Management (2 pages)
     - Describe how you carried out your project as an Agile process
     - How you planned and tracked your sprints
     - How Scrum meetings were used to manage the evolution of your idea and the features you decided to include in your software system.
 
-  - [ ] Software Requirements Specification (5 pages)
+  - [x] Software Requirements Specification (5 pages)
     - Account of how you established your detailed system requirements (building on the initial requirements).
     - A description of the specific domain of your personal informatics system, linked to the viewpoint of students as your target users.
     - Use cases to illustrate the services your PI system is intended to offer to relevant actors, including target users.
      - A set of functional and non-functional requirements for your system, organized into sensible groups and following the guidance given to you in lectures (e.g. relationships and priorities).
 
-  - [ ] Design (5 pages)
+  - [x] Design (5 pages)
     - A set of UML models describing the low-level design of your system (class models,
 sequence diagrams, etc.)
     - A justification of your chosen design. This should explicitly show how your design meets both functional and non-functional requirements, making direct reference to them and the rationale behind your design as it embodies your PI idea. Make sure you include explanatory text with your design models: the meaning of a diagram
 is very rarely self-evident because it depends on an explanatory frame for interpretation. So you must make sure to express in words what you wish the reader to understand by them.
 
-  - [ ] Software Testing (Verification) (2 pages)
+  - [x] Software Testing (Verification) (2 pages)
     - Testing plans, indicating how you planned to perform verification of your PI system. These plans should reflect your requirements and design work, and be completed before any implementation (coding) work begins.
     - Evidence of testing (test case results).
 
@@ -70,15 +70,15 @@ is very rarely self-evident because it depends on an explanatory frame for inter
     - A critique of your software system’s requirements specification, design, and testing, including what might be improved and why you feel it would be better with these changes.
     - A critical reflection on the group’s software process, including evidence of Agility in your software process, and evidence of having evolved your requirements to reflect changes in the understanding of the problem and viability of designs. 
 
-  - [ ] References
+  - [x] References
     - List of references to articles from which you have gathered information as part of your research and have cited in the body of your report.
 
-  - [ ] Final Group Contribution Form
+  - [x] Final Group Contribution Form
     - The final Group Contribution Form (GCF), as described in Section 3.1.
     - Include a justification of high deviations from your group’s median level. 
     - Include as the 1st appendix of the report
  
-  - [ ] Other Appendices
+  - [x] Other Appendices
     - Records of group meetings (minutes) as 2nd appendix
     - Transcripts of interviews  and/or other evidence of primary research as 3rd appendix
     - May include earlier design models to show the evolution of ideas as an appendix
